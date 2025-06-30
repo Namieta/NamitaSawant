@@ -125,8 +125,6 @@
             border-radius: 50px;
             border: 2px solid rgba(236, 72, 153, 0.3);
             transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
         }
 
         .cta-button:hover {
@@ -143,6 +141,55 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #ec4899, #be185d);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .skill-tag-small {
+            background: linear-gradient(135deg, #ec4899, #be185d);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            animation: skillPop 0.6s ease forwards;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag-small:nth-child(1) { animation-delay: 1.2s; }
+        .skill-tag-small:nth-child(2) { animation-delay: 1.3s; }
+        .skill-tag-small:nth-child(3) { animation-delay: 1.4s; }
+        .skill-tag-small:nth-child(4) { animation-delay: 1.5s; }
+        .skill-tag-small:nth-child(5) { animation-delay: 1.6s; }
+        .skill-tag-small:nth-child(6) { animation-delay: 1.7s; }
+        .skill-tag-small:nth-child(7) { animation-delay: 1.8s; }
+        .skill-tag-small:nth-child(8) { animation-delay: 1.9s; }
+        .skill-tag-small:nth-child(9) { animation-delay: 2.0s; }
+        .skill-tag-small:nth-child(10) { animation-delay: 2.1s; }
+        .skill-tag-small:nth-child(11) { animation-delay: 2.2s; }
+
+        .skill-tag-small:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+        }
+
+        @keyframes skillPop {
+            0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+            60% { transform: scale(1.1) translateY(-5px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         /* About Section */
@@ -168,28 +215,6 @@
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
             color: #64748b;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, #ec4899, #be185d);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-        }
-
-        .skill-tag-small {
-            background: linear-gradient(135deg, #ec4899, #be185d);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
         }
 
         .about-image {
@@ -378,7 +403,7 @@
     <nav id="navbar">
         <div class="container">
             <div class="nav-container">
-                <div class="logo">Namita Sawant</div>
+                <div class="logo">Designer</div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -554,29 +579,14 @@
             observer.observe(el);
         });
 
-        // Portfolio item click handlers (you can expand this)
+        // Portfolio item click handlers
         document.querySelectorAll('.portfolio-item').forEach(item => {
             item.addEventListener('click', function() {
-                // Add modal or page navigation logic here
                 console.log('Portfolio item clicked:', this.querySelector('h3').textContent);
             });
         });
 
-        // Dynamic typing effect for hero text (optional enhancement)
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Add more interactive features
+        // Page load animations
         document.addEventListener('DOMContentLoaded', function() {
             // Add loading animation
             document.body.style.opacity = '0';
@@ -585,7 +595,7 @@
                 document.body.style.opacity = '1';
             }, 100);
 
-            // Add particle effect to hero (simplified)
+            // Add particle effect to hero
             const hero = document.querySelector('.hero');
             for (let i = 0; i < 20; i++) {
                 const particle = document.createElement('div');
@@ -598,6 +608,7 @@
                     top: ${Math.random() * 100}%;
                     left: ${Math.random() * 100}%;
                     animation: twinkle ${2 + Math.random() * 3}s infinite;
+                    pointer-events: none;
                 `;
                 hero.appendChild(particle);
             }
