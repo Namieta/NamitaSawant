@@ -1,1 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human-Centered Design Project | Namita Sawant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 30%, #e8f4f0 60%, #f0f4f3 90%, #f8fafc 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #7c8b9f;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .back-link {
+            color: #6b7c8a;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: #5a6c7a;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: pageSlideIn 0.8s ease forwards;
+        }
+
+        @keyframes pageSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Project Header */
+        .project-header {
+            text-align: center;
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .project-subtitle {
+            font-size: 1.1rem;
+            color: #7c8b9f;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #e8f4f0, #d6e8e2);
+            border-radius: 20px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-weight: 400;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(107, 124, 138, 0.15);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 7rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Alternating Section Layouts */
+        .section-left .section-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .section-right .section-header {
+            text-align: right;
+            margin-bottom: 3rem;
+        }
+
+        .section-center .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: #34495e;
+            position: relative;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        .section-left .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #7c8b9f;
+            border-radius: 1px;
+        }
+
+        .section-right .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 60px;
+            height: 2px;
+            background: #7c8b9f;
+            border-radius: 1px;
+        }
+
+        .section-center .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #7c8b9f;
+            border-radius: 1px;
+        }
+
+        .section-description {
+            max-width: 600px;
+            font-size: 1.1rem;
+            color: #5a6c7a;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .section-left .section-description {
+            margin-right: auto;
+        }
+
+        .section-right .section-description {
+            margin-left: auto;
+        }
+
+        .section-center .section-description {
+            margin: 0 auto;
+        }
+
+        /* Content Areas */
+        .content-area {
+            margin-top: 4rem;
+        }
+
+        /* Ideation Section */
+        .ideation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .ideation-placeholder {
+            height: 280px;
+            background: linear-gradient(135deg, #f8fafc, #e8f4f0);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-weight: 400;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 20px rgba(107, 124, 138, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(107, 124, 138, 0.06);
+        }
+
+        .ideation-placeholder:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(107, 124, 138, 0.12);
+            background: linear-gradient(135deg, #ffffff, #f0f4f3);
+        }
+
+        /* App Features - Zigzag Layout */
+        .features-container {
+            margin-top: 4rem;
+        }
+
+        .feature-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+            padding: 0;
+        }
+
+        .feature-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .feature-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #34495e;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+        }
+
+        .feature-content p {
+            color: #5a6c7a;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .feature-placeholder {
+            height: 320px;
+            background: linear-gradient(135deg, #f8fafc, #e8f4f0);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-weight: 400;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 25px rgba(107, 124, 138, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(107, 124, 138, 0.06);
+        }
+
+        .feature-placeholder:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(107, 124, 138, 0.12);
+            background: linear-gradient(135deg, #ffffff, #f0f4f3);
+        }
+
+        /* Full Image Section */
+        .full-image-section {
+            margin: 6rem 0;
+        }
+
+        .full-image-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #e8f4f0, #d6e8e2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-size: 1.1rem;
+            font-weight: 400;
+            box-shadow: 0 8px 30px rgba(107, 124, 138, 0.1);
+            margin-top: 4rem;
+            border: 1px solid rgba(107, 124, 138, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .full-image-placeholder:hover {
+            box-shadow: 0 12px 40px rgba(107, 124, 138, 0.15);
+        }
+
+        /* Feedback Section */
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .feedback-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(107, 124, 138, 0.08);
+            border-left: 3px solid #a8b8c8;
+        }
+
+        .feedback-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 25px rgba(107, 124, 138, 0.1);
+        }
+
+        .feedback-placeholder {
+            height: 160px;
+            background: linear-gradient(135deg, #f8fafc, #e8f4f0);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .feedback-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .feedback-card p {
+            color: #5a6c7a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            margin: 6rem 0;
+            border: 1px solid rgba(107, 124, 138, 0.08);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            background: linear-gradient(135deg, #e8f4f0, #d6e8e2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-size: 1rem;
+            font-weight: 400;
+            margin: 2rem auto 0;
+            box-shadow: 0 6px 25px rgba(107, 124, 138, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(107, 124, 138, 0.08);
+        }
+
+        .video-placeholder:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 35px rgba(107, 124, 138, 0.15);
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            position: relative;
+            margin: 4rem 0;
+            padding-left: 3rem;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #a8b8c8;
+            border-radius: 1px;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #7c8b9f;
+            border-radius: 50%;
+            position: absolute;
+            left: -3rem;
+            top: 4px;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(107, 124, 138, 0.2);
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1.8rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(107, 124, 138, 0.06);
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(107, 124, 138, 0.08);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #34495e;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+        }
+
+        .timeline-content p {
+            color: #5a6c7a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .feature-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .feature-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .container {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .process-timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-dot {
+                left: -2rem;
+            }
+
+            .section-left .section-header,
+            .section-right .section-header {
+                text-align: center;
+            }
+
+            .section-left .section-title::after,
+            .section-right .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .section-left .section-description,
+            .section-right .section-description {
+                margin: 0 auto;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #7c8b9f;
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 1001;
+            transition: transform 0.1s ease;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Namita Sawant</div>
+            <a href="#" class="back-link" onclick="goBackToPortfolio(event)">
+                ← Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header floating">
+            <h1 class="project-title">Human-Centered Design Project</h1>
+            <p class="project-subtitle">Interaction Design • User Experience • Product Innovation</p>
+            <div class="logo-placeholder">
+                App Logo Here
+            </div>
+        </div>
+
+        <!-- Idea Generation Section -->
+        <section class="section section-left">
+            <div class="section-header">
+                <h2 class="section-title">Idea Genesis</h2>
+                <p class="section-description">
+                    [Space for your description of how the idea was born - the spark that started it all]
+                </p>
+            </div>
+            <div class="content-area">
+                <div class="process-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Initial Observation</h3>
+                            <p>[Describe the problem you noticed or the opportunity you identified]</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Research & Insights</h3>
+                            <p>[Detail the research phase and key insights that shaped your understanding]</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Problem Definition</h3>
+                            <p>[Explain how you defined the core problem to solve]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivation Section -->
+        <section class="section section-right">
+            <div class="section-header">
+                <h2 class="section-title">Motivation & Purpose</h2>
+                <p class="section-description">
+                    [Space for describing what drove you to pursue this project - your personal motivation and the impact you wanted to create]
+                </p>
+            </div>
+            <div class="content-area">
+                <!-- Add your motivation content here -->
+            </div>
+        </section>
+
+        <!-- How It Started Section -->
+        <section class="section section-left">
+            <div class="section-header">
+                <h2 class="section-title">The Journey Begins</h2>
+                <p class="section-description">
+                    [Space for describing the initial steps, first prototypes, early user feedback, and how the project evolved from concept to reality]
+                </p>
+            </div>
+            <div class="content-area">
+                <!-- Add your journey content here -->
+            </div>
+        </section>
+
+        <!-- Ideation Phase Section -->
+        <section class="section section-center">
+            <div class="section-header">
+                <h2 class="section-title">Ideation & Creative Process</h2>
+                <p class="section-description">
+                    [Space for describing your ideation methods, brainstorming sessions, sketches, and creative exploration]
+                </p>
+            </div>
+            <div class="ideation-grid">
+                <div class="ideation-placeholder">
+                    Sketches & Wireframes
+                </div>
+                <div class="ideation-placeholder">
+                    User Journey Maps
+                </div>
+                <div class="ideation-placeholder">
+                    Concept Iterations
+                </div>
+                <div class="ideation-placeholder">
+                    Design Explorations
+                </div>
+            </div>
+        </section>
+
+        <!-- App Features Section -->
+        <section class="section section-right">
+            <div class="section-header">
+                <h2 class="section-title">Key Features & Solutions</h2>
+                <p class="section-description">
+                    [Space for describing the core features and how they address user needs]
+                </p>
+            </div>
+            <div class="features-container">
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>Feature One</h3>
+                        <p>[Describe the first key feature, its purpose, and how it enhances user experience]</p>
+                    </div>
+                    <div class="feature-placeholder">
+                        Feature 1 Screenshot/Demo
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>Feature Two</h3>
+                        <p>[Describe the second feature and its unique value proposition]</p>
+                    </div>
+                    <div class="feature-placeholder">
+                        Feature 2 Screenshot/Demo
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>Feature Three</h3>
+                        <p>[Explain the third feature and how it solves specific user problems]</p>
+                    </div>
+                    <div class="feature-placeholder">
+                        Feature 3 Screenshot/Demo
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>Feature Four</h3>
+                        <p>[Detail the fourth feature and its contribution to the overall solution]</p>
+                    </div>
+                    <div class="feature-placeholder">
+                        Feature 4 Screenshot/Demo
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Application Overview -->
+        <section class="section section-center">
+            <div class="section-header">
+                <h2 class="section-title">Complete Application Overview</h2>
+                <p class="section-description">
+                    [Space for describing the complete application flow and overall user experience]
+                </p>
+            </div>
+            <div class="full-image-section">
+                <div class="full-image-placeholder">
+                    Full Application Screenshot/Mockup
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section class="section section-left">
+            <div class="section-header">
+                <h2 class="section-title">User Feedback & Iterations</h2>
+                <p class="section-description">
+                    [Space for describing the feedback process, user testing results, and how you incorporated insights]
+                </p>
+            </div>
+            <div class="feedback-grid">
+                <div class="feedback-card">
+                    <div class="feedback-placeholder">
+                        User Testing Session 1
+                    </div>
+                    <h4>Initial Feedback</h4>
+                    <p>[Key insights from first round of testing]</p>
+                </div>
+                <div class="feedback-card">
+                    <div class="feedback-placeholder">
+                        Iteration & Improvements
+                    </div>
+                    <h4>Design Refinements</h4>
+                    <p>[Changes made based on feedback]</p>
+                </div>
+                <div class="feedback-card">
+                    <div class="feedback-placeholder">
+                        Final Validation
+                    </div>
+                    <h4>Final Testing</h4>
+                    <p>[Results from final validation testing]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Demonstration Section -->
+        <section class="section section-center">
+            <div class="video-section">
+                <h2 class="section-title">Project Demonstration</h2>
+                <p class="section-description">
+                    [Space for describing what the video showcases - walkthrough, user interactions, key features in action]
+                </p>
+                <div class="video-placeholder">
+                    📹 Project Demo Video
+                    <br>
+                    <small>Video Player Placeholder</small>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollTop / scrollHeight;
+            document.getElementById('scrollIndicator').style.transform = `scaleX(${scrollPercent})`;
+        });
+
+        // Navigation functions
+        function goBackToPortfolio(event) {
+            event.preventDefault();
+            document.querySelector('.container').style.opacity = '0';
+            document.querySelector('.container').style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                window.history.back();
+            }, 300);
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.ideation-placeholder, .feature-placeholder').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Page load animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.8s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
