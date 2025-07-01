@@ -220,14 +220,6 @@
             gap: 1rem;
         }
 
-        .skill-tag {
-            background: linear-gradient(135deg, #ec4899, #be185d);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-        }
-
         .skill-tag-small {
             background: linear-gradient(135deg, #ec4899, #be185d);
             color: white;
@@ -292,19 +284,6 @@
             text-align: center;
         }
 
-        .profile-placeholder {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(45deg, #e879a7, #d63384);
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 20px 40px rgba(214, 51, 132, 0.3);
-        }
-
         /* Portfolio Section */
         .portfolio {
             padding: 5rem 0;
@@ -331,6 +310,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
 
         .portfolio-item:hover {
@@ -346,6 +327,26 @@
             justify-content: center;
             color: #d63384;
             font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Special styling for HCD project */
+        .portfolio-item.hcd-project .portfolio-image {
+            background: linear-gradient(135deg, #D6DFCD, #B6CAC3, #85A498);
+            color: #fff;
+        }
+
+        .portfolio-item.hcd-project .portfolio-image::before {
+            content: 'Human-Centered Design';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
         }
 
         .portfolio-content {
@@ -375,6 +376,12 @@
             padding: 0.25rem 0.75rem;
             border-radius: 15px;
             font-size: 0.8rem;
+        }
+
+        /* Special tags for HCD project */
+        .portfolio-item.hcd-project .project-tag {
+            background: #D6DFCD;
+            color: #85A498;
         }
 
         /* Contact Section */
@@ -468,6 +475,12 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Twinkle animation */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -537,18 +550,23 @@
         <div class="container">
             <h2 class="section-title fade-in">Featured Projects</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">Project Image Placeholder</div>
-                    <div class="portfolio-content">
-                        <h3>Automotive Component Redesign</h3>
-                        <p>Complete redesign of a critical automotive part using FEA analysis, reducing weight by 30% while improving structural integrity and manufacturability.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">CAD Design</span>
-                            <span class="project-tag">FEA Analysis</span>
-                            <span class="project-tag">Weight Optimization</span>
+                <a href="projects/hcd-project.html" class="portfolio-item hcd-project fade-in">
+                    <div class="portfolio-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+                            <div>HCD Class Project</div>
                         </div>
                     </div>
-                </div>
+                    <div class="portfolio-content">
+                        <h3>Human-Centered Design Project</h3>
+                        <p>Complete design thinking process from ideation to final prototype, showcasing user research, iterative design, and usability testing for an innovative mobile application.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Design Thinking</span>
+                            <span class="project-tag">User Research</span>
+                            <span class="project-tag">Prototyping</span>
+                        </div>
+                    </div>
+                </a>
 
                 <div class="portfolio-item fade-in">
                     <div class="portfolio-image">Project Image Placeholder</div>
@@ -609,7 +627,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Mechanical Engineer & Product Designer Portfolio. All rights reserved.</p>
+            <p>&copy; 2025 Namita Sawant. All rights reserved.</p>
         </div>
     </footer>
 
@@ -657,8 +675,8 @@
             observer.observe(el);
         });
 
-        // Portfolio item click handlers
-        document.querySelectorAll('.portfolio-item').forEach(item => {
+        // Portfolio item click handlers for non-linked items
+        document.querySelectorAll('.portfolio-item:not(.hcd-project)').forEach(item => {
             item.addEventListener('click', function() {
                 console.log('Portfolio item clicked:', this.querySelector('h3').textContent);
             });
@@ -690,16 +708,6 @@
                 `;
                 hero.appendChild(particle);
             }
-
-            // Add twinkle animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes twinkle {
-                    0%, 100% { opacity: 0; transform: scale(0.5); }
-                    50% { opacity: 1; transform: scale(1); }
-                }
-            `;
-            document.head.appendChild(style);
         });
     </script>
 </body>
