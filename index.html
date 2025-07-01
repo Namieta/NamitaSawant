@@ -73,12 +73,12 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 50%, #fdf2f8 100%);
+            background: linear-gradient(135deg, #f8bbd9 0%, #e879a7 25%, #d63384 50%, #c2185b 75%, #ad1457 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #831843;
+            color: #fff;
             position: relative;
             overflow: hidden;
         }
@@ -86,10 +86,38 @@
         .hero::before {
             content: '';
             position: absolute;
+            top: -50%;
+            left: -50%;
             width: 200%;
             height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(236,72,153,0.15)"/></svg>') repeat;
-            animation: float 20s infinite linear;
+            background: 
+                radial-gradient(ellipse 800px 400px at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 600px 300px at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 400px 200px at 60% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 500px 250px at 30% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+            animation: float 25s infinite linear;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M0,500 Q250,200 500,500 T1000,500 L1000,1000 L0,1000 Z" fill="rgba(255,255,255,0.05)"/></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M0,300 Q300,100 600,400 T1000,300 L1000,1000 L0,1000 Z" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 100% 100%, 100% 100%;
+            background-position: 0% 0%, 0% 20%;
+            animation: wave 20s infinite ease-in-out;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-20px) rotate(1deg); }
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(20px) rotate(-1deg); }
         }
 
         @keyframes float {
@@ -119,18 +147,18 @@
         .cta-button {
             display: inline-block;
             padding: 12px 30px;
-            background: rgba(236, 72, 153, 0.15);
-            color: #831843;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
             text-decoration: none;
             border-radius: 50px;
-            border: 2px solid rgba(236, 72, 153, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeInUp 1s ease 4.0s forwards;
         }
 
         .cta-button:hover {
-            background: rgba(236, 72, 153, 0.25);
+            background: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
         }
 
@@ -197,7 +225,7 @@
         /* About Section */
         .about {
             padding: 5rem 0;
-            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            background: linear-gradient(135deg, #fdf2f8 0%, #f8bbd9 100%);
         }
 
         .about-content {
@@ -226,14 +254,14 @@
         .profile-placeholder {
             width: 300px;
             height: 300px;
-            background: linear-gradient(45deg, #ec4899, #a21caf);
+            background: linear-gradient(45deg, #e879a7, #d63384);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.2rem;
-            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3);
+            box-shadow: 0 20px 40px rgba(214, 51, 132, 0.3);
         }
 
         /* Portfolio Section */
@@ -270,11 +298,11 @@
 
         .portfolio-image {
             height: 200px;
-            background: linear-gradient(45deg, #fdf2f8, #fce7f3);
+            background: linear-gradient(45deg, #fdf2f8, #f8bbd9);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #be185d;
+            color: #d63384;
             font-size: 1.1rem;
         }
 
@@ -300,8 +328,8 @@
         }
 
         .project-tag {
-            background: #fce7f3;
-            color: #be185d;
+            background: #f8bbd9;
+            color: #d63384;
             padding: 0.25rem 0.75rem;
             border-radius: 15px;
             font-size: 0.8rem;
@@ -310,7 +338,7 @@
         /* Contact Section */
         .contact {
             padding: 5rem 0;
-            background: linear-gradient(135deg, #831843 0%, #be185d 100%);
+            background: linear-gradient(135deg, #ad1457 0%, #d63384 100%);
             color: white;
             text-align: center;
         }
@@ -351,7 +379,7 @@
 
         /* Footer */
         footer {
-            background: #701a75;
+            background: #881036;
             color: rgba(255, 255, 255, 0.7);
             text-align: center;
             padding: 2rem 0;
@@ -613,7 +641,7 @@
                     position: absolute;
                     width: 4px;
                     height: 4px;
-                    background: rgba(236,72,153,0.4);
+                    background: rgba(214,51,132,0.4);
                     border-radius: 50%;
                     top: ${Math.random() * 100}%;
                     left: ${Math.random() * 100}%;
