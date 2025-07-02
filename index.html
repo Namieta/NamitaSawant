@@ -385,6 +385,24 @@
             backdrop-filter: blur(10px);
         }
 
+        /* Special styling for SAE Baja project */
+        .portfolio-item.sae-baja-project .portfolio-image {
+            background: linear-gradient(135deg, #b7791f, #d4a73f, #e6c06f);
+            color: #fff;
+        }
+
+        .portfolio-item.sae-baja-project .portfolio-image::before {
+            content: 'Competitive Engineering';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+        }
+
         .portfolio-content {
             padding: 1.5rem;
         }
@@ -430,6 +448,12 @@
         .portfolio-item.smart-sorter-project .project-tag {
             background: #f5f5f5;
             color: #2c2c2c;
+        }
+
+        /* Special tags for SAE Baja project */
+        .portfolio-item.sae-baja-project .project-tag {
+            background: #fef3e2;
+            color: #b7791f;
         }
 
         /* Contact Section */
@@ -652,18 +676,23 @@
                     </div>
                 </a>
 
-                <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">Project Image Placeholder</div>
-                    <div class="portfolio-content">
-                        <h3>Computational Design Framework</h3>
-                        <p>Developed automated design optimization framework using machine learning and computational modeling, reducing design cycle time by 60% for complex engineering projects.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Machine Learning</span>
-                            <span class="project-tag">Automation</span>
-                            <span class="project-tag">Optimization</span>
+                <a href="projects/sae-baja.html" class="portfolio-item sae-baja-project fade-in">
+                    <div class="portfolio-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏁</div>
+                            <div>Competitive Engineering</div>
                         </div>
                     </div>
-                </div>
+                    <div class="portfolio-content">
+                        <h3>SAE Baja India Competition</h3>
+                        <p>Led chassis design and FEA analysis for national ATV competition, achieving AIR 19/400+ teams in presentation and AIR 12/250+ in endurance while securing multiple sponsorships.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Chassis Design</span>
+                            <span class="project-tag">FEA Analysis</span>
+                            <span class="project-tag">Team Leadership</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
