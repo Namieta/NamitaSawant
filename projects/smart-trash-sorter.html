@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Trash Sorter | Namita Sawant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: #fefefe;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d63384;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            transform: scaleY(0.95);
+        }
+
+        .back-link {
+            color: #6b7c8a;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: #5a6c7a;
+        }
+
+        /* Main Content with wide margins */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 6rem 4rem 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: pageSlideIn 0.8s ease forwards;
+        }
+
+        @keyframes pageSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Project Header */
+        .project-header {
+            text-align: center;
+            margin-bottom: 8rem;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a, #2c2c2c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #7c8b9f;
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+        .project-intro {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #5a6c7a;
+            line-height: 1.9;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 8rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #34495e;
+            text-align: center;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+            border-radius: 2px;
+        }
+
+        .section-description {
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            color: #5a6c7a;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Image Containers */
+        .single-image {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background: #f8fafc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-weight: 400;
+            font-size: 1rem;
+            margin: 0 auto 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #7c8b9f;
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        /* Prototype Gallery */
+        .prototype-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .prototype-item {
+            text-align: center;
+        }
+
+        .prototype-image {
+            width: 100%;
+            height: 320px;
+            background: #f8fafc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .prototype-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #34495e;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+        }
+
+        .prototype-description {
+            color: #5a6c7a;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        /* Key Features */
+        .features-section {
+            margin: 6rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #34495e;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .feature-text {
+            color: #5a6c7a;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #1a1a1a, #4a4a4a, #2c2c2c);
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 1001;
+            transition: transform 0.1s ease;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 6rem 3rem 3rem;
+            }
+
+            .nav-container {
+                padding: 0 3rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .prototype-gallery {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .feature-item {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Namita Sawant</div>
+            <a href="#" class="back-link" onclick="goBackToPortfolio(event)">
+                ← Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">Smart Home Trash Sorter</h1>
+            <p class="project-subtitle">IoT Product Design • Automation • Sustainable Technology</p>
+            <div class="project-intro">
+                <p>An extension of the LitterMaster app concept that asks: "Why bother users with sorting trash when the bin can do it automatically?" This smart home solution combines computer vision, mechanical engineering, and IoT connectivity to create an autonomous waste sorting system that eliminates user effort while maximizing recycling efficiency.</p>
+            </div>
+        </div>
+
+        <!-- Ideation Section -->
+        <section class="section">
+            <h2 class="section-title">Initial Thesis</h2>
+            <p class="section-description">
+                The core insight driving this project: if we can teach phones to recognize faces, why can't we teach trash bins to recognize recyclables?
+            </p>
+            <div class="single-image">
+                Thesis Diagram Placeholder
+                <!-- Replace with: <img src="../images/projects/thesis-diagram.png" alt="Smart Trash Sorter Thesis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+            </div>
+            <p class="image-caption">Conceptual framework showing the evolution from manual sorting to automated recognition</p>
+        </section>
+
+        <!-- Sketching Process -->
+        <section class="section">
+            <h2 class="section-title">Design Process</h2>
+            <p class="section-description">
+                Hand sketches exploring mechanical sorting mechanisms, user interaction flows, and internal component layout for the three-compartment system.
+            </p>
+            <div class="single-image">
+                Hand Sketch Process
+                <!-- Replace with: <img src="../images/projects/hand-sketches.png" alt="Design Sketches" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+            </div>
+            <p class="image-caption">Initial concept sketches showing sorting mechanism and compartment design</p>
+        </section>
+
+        <!-- 3D Prototypes -->
+        <section class="section">
+            <h2 class="section-title">3D Design Evolution</h2>
+            <p class="section-description">
+                Three iterative prototypes exploring different approaches to automated sorting, form factor optimization, and user accessibility.
+            </p>
+            <div class="prototype-gallery">
+                <div class="prototype-item">
+                    <div class="prototype-image">
+                        Prototype 1 Rendering
+                        <!-- Replace with: <img src="../images/projects/prototype1.png" alt="Prototype 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+                    </div>
+                    <h3 class="prototype-label">Concept A</h3>
+                    <p class="prototype-description">Vertical sorting tower with rotating compartments and overhead scanner assembly.</p>
+                </div>
+
+                <div class="prototype-item">
+                    <div class="prototype-image">
+                        Prototype 2 Rendering
+                        <!-- Replace with: <img src="../images/projects/prototype2.png" alt="Prototype 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+                    </div>
+                    <h3 class="prototype-label">Concept B</h3>
+                    <p class="prototype-description">Horizontal drawer system with conveyor sorting and front-facing camera module.</p>
+                </div>
+
+                <div class="prototype-item">
+                    <div class="prototype-image">
+                        Prototype 3 Rendering
+                        <!-- Replace with: <img src="../images/projects/prototype3.png" alt="Prototype 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+                    </div>
+                    <h3 class="prototype-label">Final Design</h3>
+                    <p class="prototype-description">Sleek cylindrical form with three hidden compartments and top-mounted vision system.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="section features-section">
+            <h2 class="section-title">Smart Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🔌</span>
+                    <h3 class="feature-title">Wired Power System</h3>
+                    <p class="feature-text">Unlike battery-dependent competitors, uses standard AC power for consistent, maintenance-free operation.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">♻️</span>
+                    <h3 class="feature-title">Three-Way Sorting</h3>
+                    <p class="feature-text">Separate compartments for recyclables, non-recyclables, and compostable materials with 95% accuracy.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <h3 class="feature-title">LitterMaster Integration</h3>
+                    <p class="feature-text">Connects with existing app ecosystem to track household waste patterns and environmental impact.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🤖</span>
+                    <h3 class="feature-title">Computer Vision</h3>
+                    <p class="feature-text">Advanced image recognition trained on NYC-specific waste categories and disposal guidelines.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Innovation -->
+        <section class="section">
+            <h2 class="section-title">Design Philosophy</h2>
+            <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; color: #5a6c7a; line-height: 1.9; margin-bottom: 2rem;">
+                    This project represents the natural evolution of waste management technology. While the LitterMaster app educated users about proper sorting, the Smart Home Trash Sorter eliminates the need for user education entirely.
+                </p>
+                <p style="font-size: 1.2rem; color: #5a6c7a; line-height: 1.9;">
+                    By automating the sorting process at the point of disposal, we remove human error, increase recycling rates, and make sustainable living effortless. The corded design ensures reliability—because sustainability shouldn't depend on remembering to charge your trash can.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollTop / scrollHeight;
+            document.getElementById('scrollIndicator').style.transform = `scaleX(${scrollPercent})`;
+        });
+
+        // Navigation functions
+        function goBackToPortfolio(event) {
+            event.preventDefault();
+            document.querySelector('.container').style.opacity = '0';
+            document.querySelector('.container').style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                window.history.back();
+            }, 300);
+        }
+
+        // Page load animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.8s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
