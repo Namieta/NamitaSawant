@@ -349,6 +349,24 @@
             backdrop-filter: blur(10px);
         }
 
+        /* Special styling for Pokemon project */
+        .portfolio-item.pokemon-project .portfolio-image {
+            background: linear-gradient(135deg, #3b82c4, #60a5fa, #93c5fd);
+            color: #fff;
+        }
+
+        .portfolio-item.pokemon-project .portfolio-image::before {
+            content: 'SolidWorks 3D Modeling';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+        }
+
         .portfolio-content {
             padding: 1.5rem;
         }
@@ -382,6 +400,12 @@
         .portfolio-item.hcd-project .project-tag {
             background: #D6DFCD;
             color: #85A498;
+        }
+
+        /* Special tags for Pokemon project */
+        .portfolio-item.pokemon-project .project-tag {
+            background: #e0f2fe;
+            color: #3b82c4;
         }
 
         /* Contact Section */
@@ -568,18 +592,23 @@
                     </div>
                 </a>
 
-                <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">Project Image Placeholder</div>
-                    <div class="portfolio-content">
-                        <h3>Medical Device Development</h3>
-                        <p>Led the product design and computational modeling for a new medical device, ensuring FDA compliance and optimal user experience for healthcare professionals.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Medical Design</span>
-                            <span class="project-tag">Regulatory Compliance</span>
-                            <span class="project-tag">User Testing</span>
+                <a href="projects/pokemon-ball.html" class="portfolio-item pokemon-project fade-in">
+                    <div class="portfolio-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚙️</div>
+                            <div>SolidWorks 3D Model</div>
                         </div>
                     </div>
-                </div>
+                    <div class="portfolio-content">
+                        <h3>Pokemon Ball 3D Model</h3>
+                        <p>Advanced SolidWorks modeling showcasing complex surface design, photorealistic rendering, and professional 3D visualization techniques for precision geometric forms.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">SolidWorks</span>
+                            <span class="project-tag">3D Modeling</span>
+                            <span class="project-tag">Rendering</span>
+                        </div>
+                    </div>
+                </a>
 
                 <div class="portfolio-item fade-in">
                     <div class="portfolio-image">Project Image Placeholder</div>
