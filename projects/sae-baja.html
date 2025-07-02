@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAE Baja India Competition | Namita Sawant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: #fefefe;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 6rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d63384;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            transform: scaleY(0.95);
+        }
+
+        .back-link {
+            color: #6b7c8a;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: #5a6c7a;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 6rem 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: pageSlideIn 0.8s ease forwards;
+        }
+
+        @keyframes pageSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Project Header */
+        .project-header {
+            text-align: center;
+            margin-bottom: 8rem;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #b7791f;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #7c8b9f;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .achievements {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .achievement-badge {
+            background: linear-gradient(135deg, #b7791f, #d4a73f);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(183, 121, 31, 0.3);
+        }
+
+        .achievement-badge .rank {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .achievement-badge .description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .project-intro {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #5a6c7a;
+            line-height: 1.9;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 8rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #34495e;
+            text-align: center;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #b7791f;
+            border-radius: 2px;
+        }
+
+        .section-description {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            color: #5a6c7a;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Role Highlights */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .role-card {
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .role-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .role-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #b7791f;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .role-description {
+            color: #5a6c7a;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .gallery-item {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            background: #f8fafc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #34495e;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            color: #5a6c7a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Technical Highlights */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            padding: 2rem;
+            border-left: 4px solid #b7791f;
+            background: rgba(248, 249, 250, 0.8);
+            border-radius: 8px;
+        }
+
+        .tech-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: #b7791f;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .tech-item p {
+            color: #5a6c7a;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Impact Stats */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #b7791f;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #5a6c7a;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #b7791f;
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 1001;
+            transition: transform 0.1s ease;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 6rem 3rem 3rem;
+            }
+
+            .nav-container {
+                padding: 0 3rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .achievements {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .roles-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Namita Sawant</div>
+            <a href="#" class="back-link" onclick="goBackToPortfolio(event)">
+                ← Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">SAE Baja India Competition</h1>
+            <p class="project-subtitle">Chassis Design • FEA Analysis • Team Leadership • Marketing Strategy</p>
+            
+            <div class="achievements">
+                <div class="achievement-badge">
+                    <span class="rank">AIR 19</span>
+                    <span class="description">Presentation Round<br>400+ Teams</span>
+                </div>
+                <div class="achievement-badge">
+                    <span class="rank">AIR 12</span>
+                    <span class="description">Endurance Round<br>250+ Teams</span>
+                </div>
+            </div>
+
+            <div class="project-intro">
+                <p>As Chassis & FEA Head and Marketing Lead for SAE Baja India, I led both technical development and strategic partnerships that propelled our team to top national rankings. This experience combined advanced engineering analysis, hands-on vehicle design, and business development skills in one of India's most competitive collegiate engineering challenges.</p>
+            </div>
+        </div>
+
+        <!-- About SAE Baja -->
+        <section class="section">
+            <h2 class="section-title">Competition Overview</h2>
+            <p class="section-description">
+                SAE Baja India challenges undergraduate students to design, build, test, and race a single-seat, off-road vehicle. Teams are evaluated on design innovation, cost optimization, manufacturing feasibility, and dynamic performance across multiple events including acceleration, maneuverability, suspension & traction, and a grueling 4-hour endurance race.
+            </p>
+            
+            <div class="impact-stats">
+                <div class="stat-item">
+                    <span class="stat-number">400+</span>
+                    <span class="stat-label">Participating Teams</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Student Participants</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4 Hours</span>
+                    <span class="stat-label">Endurance Challenge</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Top 20</span>
+                    <span class="stat-label">National Ranking</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Roles -->
+        <section class="section">
+            <h2 class="section-title">Leadership Roles</h2>
+            <div class="roles-grid">
+                <div class="role-card">
+                    <span class="role-icon">🏗️</span>
+                    <h3 class="role-title">Chassis & FEA Head</h3>
+                    <p class="role-description">Led chassis design team, ensuring compliance with SAE rulebook while optimizing for driver ergonomics. Conducted comprehensive FEM analysis on chassis and complete ATV assembly for structural validation and performance optimization.</p>
+                </div>
+
+                <div class="role-card">
+                    <span class="role-icon">📈</span>
+                    <h3 class="role-title">Marketing Lead</h3>
+                    <p class="role-description">Secured multiple sponsorships totaling significant funding for the project. Developed marketing strategies, created sponsor presentations, and maintained corporate relationships that supported team operations and competition participation.</p>
+                </div>
+
+                <div class="role-card">
+                    <span class="role-icon">👥</span>
+                    <h3 class="role-title">Team Coordinator</h3>
+                    <p class="role-description">Coordinated cross-functional teams including design, manufacturing, testing, and marketing. Managed project timelines, resource allocation, and ensured seamless integration between different subsystems of the vehicle.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Achievements -->
+        <section class="section">
+            <h2 class="section-title">Technical Excellence</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Chassis Design & Compliance</h4>
+                    <p>Designed space frame chassis adhering to SAE Baja India rulebook specifications while optimizing for weight, strength, and manufacturability. Ensured ergonomic compatibility for two selected drivers with different anthropometric requirements.</p>
+                </div>
+
+                <div class="tech-item">
+                    <h4>Finite Element Analysis</h4>
+                    <p>Performed comprehensive FEA on chassis structure and complete ATV assembly. Analyzed stress distribution, deformation patterns, and safety factors under various loading conditions including impact, torsion, and dynamic loads.</p>
+                </div>
+
+                <div class="tech-item">
+                    <h4>Design Optimization</h4>
+                    <p>Iteratively refined chassis geometry based on FEA results, reducing weight by 15% while maintaining structural integrity. Optimized material selection and joint design for manufacturing efficiency and performance.</p>
+                </div>
+
+                <div class="tech-item">
+                    <h4>Corporate Partnerships</h4>
+                    <p>Successfully secured sponsorships from multiple companies, demonstrating strong communication skills and business acumen. Managed sponsor relationships and delivered on partnership commitments throughout the project lifecycle.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Gallery -->
+        <section class="section">
+            <h2 class="section-title">Project Gallery</h2>
+            <p class="section-description">
+                Visual documentation of the design process, team collaboration, and competition performance showcasing the complete development journey from concept to competition.
+            </p>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        Team Photo at Competition
+                        <!-- Replace with: <img src="../images/projects/baja-team.jpg" alt="SAE Baja Team" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+                    </div>
+                    <h3 class="gallery-label">Team Competition</h3>
+                    <p class="gallery-description">Team photo during SAE Baja India nationals showcasing our ATV and team spirit.</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        Chassis Design CAD Model
+                        <!-- Replace with: <img src="../images/projects/baja-chassis.jpg" alt="Chassis Design" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+                    </div>
+                    <h3 class="gallery-label">Chassis Design</h3>
+                    <p class="gallery-description">CAD model of the space frame chassis designed for optimal strength-to-weight ratio.</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        FEA Analysis Results
+                        <!-- Replace with: <img src="../images/projects/baja-fea.jpg" alt="FEA Analysis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+                    </div>
+                    <h3 class="gallery-label">FEA Analysis</h3>
+                    <p class="gallery-description">Finite element analysis showing stress distribution and deformation patterns.</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        Complete ATV Assembly
+                        <!-- Replace with: <img src="../images/projects/baja-atv.jpg" alt="Complete ATV" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+                    </div>
+                    <h3 class="gallery-label">Final ATV</h3>
+                    <p class="gallery-description">Complete assembled ATV ready for dynamic events and endurance testing.</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        Competition Action Shot
+                        <!-- Replace with: <img src="../images/projects/baja-action.jpg" alt="Competition Action" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"> -->
+                    </div>
+                    <h3 class="gallery-label">In Action</h3>
+                    <p class="gallery-description">ATV performing during one of the dynamic events at the national competition.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Impact -->
+        <section class="section">
+            <h2 class="section-title">Career Impact</h2>
+            <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; color: #5a6c7a; line-height: 1.9; margin-bottom: 2rem;">
+                    The leadership experience and technical achievements from SAE Baja India directly contributed to my professional development. The combination of hands-on engineering, team management, and business development skills demonstrated during this project led to my selection for campus placements from a pool of 1000+ students.
+                </p>
+                <p style="font-size: 1.2rem; color: #5a6c7a; line-height: 1.9;">
+                    This project exemplifies the intersection of technical excellence, leadership capability, and real-world application—proving that engineering education extends far beyond the classroom into competitive, high-pressure environments that mirror professional challenges.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollTop / scrollHeight;
+            document.getElementById('scrollIndicator').style.transform = `scaleX(${scrollPercent})`;
+        });
+
+        // Navigation functions
+        function goBackToPortfolio(event) {
+            event.preventDefault();
+            document.querySelector('.container').style.opacity = '0';
+            document.querySelector('.container').style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                window.history.back();
+            }, 300);
+        }
+
+        // Page load animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.8s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
