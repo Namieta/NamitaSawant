@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Ball 3D Model | Namita Sawant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #fefefe;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d63384;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            transform: scaleY(0.95);
+        }
+
+        .back-link {
+            color: #6b7c8a;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: #5a6c7a;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: pageSlideIn 0.8s ease forwards;
+        }
+
+        @keyframes pageSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Project Header */
+        .project-header {
+            text-align: center;
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #3b82c4;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: #7c8b9f;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .project-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #5a6c7a;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Skills Showcase */
+        .skills-section {
+            margin: 4rem 0;
+        }
+
+        .skills-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #34495e;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .skill-card p {
+            color: #5a6c7a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Image Gallery */
+        .gallery-section {
+            margin: 6rem 0;
+        }
+
+        .gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .gallery-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #3b82c4;
+            border-radius: 2px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .gallery-item {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 350px;
+            background: #f8fafc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7c8a;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #34495e;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            color: #5a6c7a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Technical Details */
+        .tech-details {
+            margin: 4rem 0;
+        }
+
+        .tech-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .tech-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-item {
+            padding: 1.5rem 0;
+        }
+
+        .tech-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: #34495e;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .tech-item p {
+            color: #5a6c7a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #3b82c4;
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 1001;
+            transition: transform 0.1s ease;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .gallery-title {
+                font-size: 2.2rem;
+            }
+
+            .container {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Namita Sawant</div>
+            <a href="#" class="back-link" onclick="goBackToPortfolio(event)">
+                ← Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">Pokemon Ball 3D Model</h1>
+            <p class="project-subtitle">SolidWorks • 3D Modeling • Photorealistic Rendering</p>
+            <div class="project-intro">
+                <p>A personal project exploring advanced SolidWorks capabilities through the creation of an iconic Pokemon Ball. This model demonstrates precision geometric modeling, professional rendering techniques, and attention to manufacturing details.</p>
+            </div>
+        </div>
+
+        <!-- Skills Showcase -->
+        <section class="skills-section">
+            <h2 class="skills-title">Technical Approach</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>Surface Modeling</h3>
+                    <p>Complex curved surfaces with precise geometric constraints and seamless transitions.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Material Application</h3>
+                    <p>Realistic plastic materials with accurate reflectivity and surface finish properties.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💡</div>
+                    <h3>Professional Rendering</h3>
+                    <p>Studio lighting setup with global illumination for photorealistic output quality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Design Views & Renderings</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        Front View Rendering
+                        <!-- Replace with: <img src="../images/projects/pokemon-front.png" alt="Pokemon Ball Front View" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;"> -->
+                    </div>
+                    <h3 class="gallery-label">Front View</h3>
+                    <p class="gallery-description">Classic design with iconic red and white color scheme.</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        Isometric View Rendering
+                        <!-- Replace with: <img src="../images/projects/pokemon-isometric.png" alt="Pokemon Ball Isometric View" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;"> -->
+                    </div>
+                    <h3 class="gallery-label">Isometric View</h3>
+                    <p class="gallery-description">Three-dimensional perspective showcasing spherical geometry.</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        Side Profile Rendering
+                        <!-- Replace with: <img src="../images/projects/pokemon-side.png" alt="Pokemon Ball Side View" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;"> -->
+                    </div>
+                    <h3 class="gallery-label">Side Profile</h3>
+                    <p class="gallery-description">Cross-sectional view revealing internal mechanism design.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Details -->
+        <section class="tech-details">
+            <h2 class="tech-title">Project Details</h2>
+            <div class="tech-content">
+                <div class="tech-item">
+                    <h4>Modeling Features</h4>
+                    <p>Lofted surfaces, revolve cuts, and precise dimensional constraints for accurate geometry.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Assembly Design</h4>
+                    <p>Two-hemisphere construction with functional hinge mechanism and internal components.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Rendering Quality</h4>
+                    <p>High-resolution output with realistic materials and professional studio lighting.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollTop / scrollHeight;
+            document.getElementById('scrollIndicator').style.transform = `scaleX(${scrollPercent})`;
+        });
+
+        // Navigation functions
+        function goBackToPortfolio(event) {
+            event.preventDefault();
+            document.querySelector('.container').style.opacity = '0';
+            document.querySelector('.container').style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                window.history.back();
+            }, 300);
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Page load animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.8s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
