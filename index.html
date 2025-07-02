@@ -367,6 +367,24 @@
             backdrop-filter: blur(10px);
         }
 
+        /* Special styling for Smart Sorter project */
+        .portfolio-item.smart-sorter-project .portfolio-image {
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a, #2c2c2c);
+            color: #fff;
+        }
+
+        .portfolio-item.smart-sorter-project .portfolio-image::before {
+            content: 'IoT Product Design';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+        }
+
         .portfolio-content {
             padding: 1.5rem;
         }
@@ -406,6 +424,12 @@
         .portfolio-item.pokemon-project .project-tag {
             background: #e0f2fe;
             color: #3b82c4;
+        }
+
+        /* Special tags for Smart Sorter project */
+        .portfolio-item.smart-sorter-project .project-tag {
+            background: #f5f5f5;
+            color: #2c2c2c;
         }
 
         /* Contact Section */
@@ -610,18 +634,23 @@
                     </div>
                 </a>
 
-                <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">Project Image Placeholder</div>
-                    <div class="portfolio-content">
-                        <h3>Consumer Electronics Prototype</h3>
-                        <p>Designed and prototyped next-generation consumer electronics with focus on ergonomics, thermal management, and manufacturing scalability.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Industrial Design</span>
-                            <span class="project-tag">Thermal Analysis</span>
-                            <span class="project-tag">Ergonomics</span>
+                <a href="projects/smart-trash-sorter.html" class="portfolio-item smart-sorter-project fade-in">
+                    <div class="portfolio-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤖</div>
+                            <div>IoT Product Design</div>
                         </div>
                     </div>
-                </div>
+                    <div class="portfolio-content">
+                        <h3>Smart Home Trash Sorter</h3>
+                        <p>Automated waste sorting system extending LitterMaster concept with computer vision, mechanical design, and IoT connectivity for effortless sustainable living.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">IoT Design</span>
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">Product Design</span>
+                        </div>
+                    </div>
+                </a>
 
                 <div class="portfolio-item fade-in">
                     <div class="portfolio-image">Project Image Placeholder</div>
