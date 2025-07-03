@@ -178,7 +178,7 @@
             content: '';
             position: absolute;
             bottom: -8px;
-            left: 10px;
+            left: 0;
             width: 60px;
             height: 2px;
             background: #7c8b9f;
@@ -263,17 +263,27 @@
         }
 
         /* App Features - Zigzag Layout */
-        .features-container {
+        /*.features-container {
             margin-top: 4rem;
-        }
+        }*/
 
+        .features-grid {
+            margin: 2rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .feature-item {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 1rem;
             align-items: center;
-            margin-bottom: 5rem;
+            margin-bottom: 2rem;
             padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            transition: none
         }
 
         .feature-item:nth-child(even) {
@@ -284,12 +294,17 @@
             direction: ltr;
         }
 
+        .feature-content {
+            text-align: center;
+            padding: 0.5rem; /* Reduced padding for closer content */
+        }
+        
         .feature-content h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: #34495e;
-            font-weight: 400;
+            font-weight: 600;
             letter-spacing: -0.3px;
         }
 
@@ -297,7 +312,23 @@
             color: #5a6c7a;
             font-size: 1.05rem;
             line-height: 1.7;
+            text-align: center;
             font-weight: 300;
+        }
+
+        .feature-item > div:last-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem; /* Reduced padding for closer images */
+        }
+
+        .feature-item img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
         }
 
         .feature-placeholder {
