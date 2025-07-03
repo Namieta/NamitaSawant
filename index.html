@@ -412,6 +412,44 @@
             color: #5D4E60;
         }
 
+        /* Special styling for FEM MATLAB project */
+        .portfolio-item.fem-matlab-project .portfolio-image {
+            background: linear-gradient(135deg, #E8F2F8, #D4E5F1, #C4D8EA);
+            color: #5D4E60;
+        }
+
+        .portfolio-item.fem-matlab-project .portfolio-image::before {
+            content: 'Computational Analysis';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(248, 187, 217, 0.3);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+            color: #5D4E60;
+        }
+
+        /* Special styling for Python project */
+        .portfolio-item.python-project .portfolio-image {
+            background: linear-gradient(135deg, #E8F5E8, #D4E8D4, #C4DBC4);
+            color: #5D4E60;
+        }
+
+        .portfolio-item.python-project .portfolio-image::before {
+            content: 'Data Science & Automation';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(248, 187, 217, 0.3);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+            color: #5D4E60;
+        }
+
         .portfolio-content {
             padding: 1.5rem;
         }
@@ -463,6 +501,18 @@
         /* Special tags for SAE Baja project */
         .portfolio-item.sae-baja-project .project-tag {
             background: #F1E5D4;
+            color: #5D4E60;
+        }
+
+        /* Special tags for FEM MATLAB project */
+        .portfolio-item.fem-matlab-project .project-tag {
+            background: #D4E5F1;
+            color: #5D4E60;
+        }
+
+        /* Special tags for Python project */
+        .portfolio-item.python-project .project-tag {
+            background: #D4E8D4;
             color: #5D4E60;
         }
 
@@ -702,6 +752,42 @@
                             <span class="project-tag">Chassis Design</span>
                             <span class="project-tag">FEA Analysis</span>
                             <span class="project-tag">Team Leadership</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/fem-matlab.html" class="portfolio-item fem-matlab-project fade-in">
+                    <div class="portfolio-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                            <div>FEM Analysis</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>FEM using MATLAB</h3>
+                        <p>Advanced finite element method implementation in MATLAB for structural analysis, demonstrating computational mechanics expertise through numerical simulation and engineering problem-solving.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">MATLAB</span>
+                            <span class="project-tag">FEM</span>
+                            <span class="project-tag">Numerical Analysis</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="projects/python-analytics.html" class="portfolio-item python-project fade-in">
+                    <div class="portfolio-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐍</div>
+                            <div>Python Development</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Python Data Analytics</h3>
+                        <p>Comprehensive data analysis and automation projects using Python, showcasing machine learning implementation, data visualization, and statistical analysis for engineering applications.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Data Analysis</span>
+                            <span class="project-tag">Machine Learning</span>
                         </div>
                     </div>
                 </a>
