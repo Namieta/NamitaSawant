@@ -305,6 +305,39 @@
             margin: 0 auto;
         }*/
 
+        /* Base image styling (applies to all) */
+        .single-image-container img,
+        .prototype-item img {
+            width: 100%;
+            /*height: auto;*/
+            border-radius: 0;
+            object-fit: contain;
+            box-shadow: none;
+            border: none;
+            margin-bottom: 15px;
+        }
+        
+        /* Individual image sizes */
+        .sketch-image {
+            max-width: 600px; /* Large size for sketch */
+            max-height: 1000px;
+        }
+        
+        .concept-a-image {
+            max-width: 300px; /* Small size for Concept A */
+            max-height: 1000px;
+        }
+        
+        .concept-b-image {
+            max-width: 450px; /* Medium size for Concept B */
+            max-height: 1000px;
+        }
+        
+        .final-design-image {
+            max-width: 500px; /* Large size for Final Design */
+            max-height: 1000px;
+        }
+
         /* Single image section styling */
         .single-image-container {
             display: flex;
