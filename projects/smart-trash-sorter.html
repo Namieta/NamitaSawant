@@ -346,20 +346,21 @@
         }
         
         .single-image-container img {
-            width: 100%;
-            /*max-width: 500px; /* Adjust this to make image larger/smaller */
-            /*height: auto; /* Maintains aspect ratio */
-            border-radius: 0; /* Removes rounded corners */
-            object-fit: contain; /* Shows full image without cropping */
-            box-shadow: none; /* Removes shadow */
-            border: none; /* Removes any border */
+            /*width: 100%;
+            max-width: 500px; 
+            /*height: auto; 
+            border-radius: 0; 
+            object-fit: contain; 
+            box-shadow: none; 
+            border: none;*/ 
+            display: block;
         }
         
         .image-caption {
             text-align: center;
             font-style: italic;
             color: #666;
-            margin-top: 10px;
+            margin-top: 16px;
             font-size: 0.9em;
         }
         
@@ -577,11 +578,11 @@
             <p class="section-description">
                 Hand sketches exploring mechanical sorting mechanisms, user interaction flows, and internal component layout for the three-compartment system.
             </p>
-            </div>
-                    <img src="../images/TrashLines.png" 
+            <div class="single-image-container">
+                <img src="../images/TrashLines.png" 
                      alt="Weekly Dashboard Feature" 
                      style="width: 100%; max-width: 200px; height: 400px; border-radius: 20px; object-fit: cover;">
-                </div>
+            </div>
             <p class="image-caption">Initial concept sketches showing sorting mechanism and compartment design</p>
         </section>
         
