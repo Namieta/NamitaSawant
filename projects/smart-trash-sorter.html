@@ -368,6 +368,7 @@
         .prototype-gallery {
             /*max-width: 2000px;*/
             margin: 0 auto;
+            align-items: flex-start;
             padding: 20px;
         }
         
@@ -381,6 +382,18 @@
         .top-row .prototype-item {
             flex: 1;
             text-align: center;
+        }
+
+        .top-row .prototype-item:first-child {
+            margin-top: 0; /* First image stays at normal position */
+        }
+        
+        .top-row .prototype-item:nth-child(2) {
+            margin-top: 80px; /* Second image moves down */
+        }
+        
+        .prototype-item {
+            flex: 0 0 auto; /* Don't grow or shrink */
         }
         
         .top-row .prototype-item img {
