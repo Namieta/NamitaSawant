@@ -153,7 +153,7 @@
             text-align: center;
         }*/
 
-        .section {
+        /*.section {
             margin-bottom: 50px;
             padding: 0 20px;
         }
@@ -199,7 +199,7 @@
             margin-bottom: 3rem;
         }*/
 
-        .single-image-container {
+        /*.single-image-container {
             display: flex;
             justify-content: center;
             margin: 30px 0;
@@ -220,7 +220,7 @@
             color: #666;
             margin-top: 10px;
             font-size: 0.9em;
-        }
+        }*/
 
         /* Prototype Gallery */
         /*.prototype-gallery {
@@ -265,7 +265,7 @@
             margin: 0 auto;
         }*/
 
-        .prototype-gallery {
+        /*.prototype-gallery {
             display: flex;
             flex-direction: column;
             gap: 40px;
@@ -303,6 +303,95 @@
             line-height: 1.5;
             max-width: 400px;
             margin: 0 auto;
+        }*/
+
+        /* Single image section styling */
+        .single-image-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .single-image-container img {
+            width: 100%;
+            max-width: 500px; /* Adjust this to make image larger/smaller */
+            height: auto; /* Maintains aspect ratio */
+            border-radius: 0; /* Removes rounded corners */
+            object-fit: contain; /* Shows full image without cropping */
+            box-shadow: none; /* Removes shadow */
+            border: none; /* Removes any border */
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        /* Prototype gallery - vertical stack */
+        .prototype-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            max-width: 800px; /* Increased to accommodate larger images */
+            margin: 0 auto;
+        }
+        
+        .prototype-item {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .prototype-item img {
+            width: 100%;
+            max-width: 400px; /* Adjust this to make images larger/smaller */
+            height: auto; /* Maintains aspect ratio */
+            border-radius: 0; /* Removes rounded corners */
+            object-fit: contain; /* Shows full image without cropping */
+            box-shadow: none; /* Removes shadow */
+            border: none; /* Removes any border */
+            margin-bottom: 15px;
+        }
+        
+        .prototype-label {
+            margin: 15px 0 8px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .prototype-description {
+            margin: 0;
+            font-size: 1em;
+            color: #666;
+            line-height: 1.5;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Section styling */
+        .section {
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .section-description {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
         }
 
         /* Key Features */
