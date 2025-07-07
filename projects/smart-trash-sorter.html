@@ -240,7 +240,7 @@
         /* Design Philosophy Section - Special styling for wide margins */
         .design-philosophy {
             margin-bottom: 8rem;
-            padding: 0 6rem; /* Even wider margins for this section */
+            padding: 0 2rem; /* Much wider margins - spans most of the page */
         }
 
         .design-philosophy .section-title {
@@ -266,7 +266,7 @@
         }
 
         .philosophy-content {
-            max-width: 1200px;
+            max-width: 1400px; /* Wider than other content */
             margin: 0 auto;
             text-align: center;
         }
@@ -285,11 +285,19 @@
         /* Key Features */
         .features-section {
             margin: 6rem 0;
+            padding: 0 40px; /* Add padding to align with other sections */
+        }
+
+        .features-section .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #333;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
             margin-top: 3rem;
         }
