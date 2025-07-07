@@ -394,28 +394,29 @@
         
         .bottom-row {
             display: flex;
-            gap: 40px;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
+            flex-direction: column; /* Stack vertically instead of side by side */
+            align-items: center; /* Center everything horizontally */
+            gap: 30px; /* Space between description and image */
+            margin-top: 50px; /* Gap from top images */
+        }    
         
         .final-image {
-            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
         }
         
         .final-image img {
             width: 100%;
             max-width: 250px;
             height: 400px;
+            border-radius: 20px;
             object-fit: cover;
-            border: none;
-            box-shadow: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
         .final-description {
-            flex: 1;
-            padding-left: 20px;
-            padding-top: 20px;
+            text-align: center;
+            max-width: 600px; 
         }
         
         .prototype-label {
@@ -604,10 +605,8 @@
             </div>
             
             <!-- Third image and description side by side -->
+            <!-- Description above, image centered below -->
             <div class="bottom-row">
-                <div class="final-image">
-                    <img src="../images/TrashBins.png" alt="Final Design - Cylindrical form">
-                </div>
                 <div class="final-description">
                     <h3 class="prototype-label">Final Design</h3>
                     <p class="prototype-description">
@@ -616,6 +615,10 @@
                         interface and optimized sorting mechanism for maximum efficiency.
                     </p>
                 </div>
+                <div class="final-image">
+                    <img src="../images/TrashBins.png" alt="Final Design - Cylindrical form">
+                </div>
+            </div>
             </div>
         </div>
         </div>
