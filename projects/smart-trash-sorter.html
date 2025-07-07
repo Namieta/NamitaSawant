@@ -469,6 +469,47 @@
             margin: 0 auto 30px auto;
         }
 
+        /* Design Philosophy Section - Special styling for wide margins */
+        .design-philosophy {
+            margin-bottom: 8rem;
+            padding: 0 2rem; /* Much wider margins - spans most of the page */
+        }
+        
+        .design-philosophy .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #34495e;
+            text-align: center;
+            font-weight: 400;
+            position: relative;
+        }
+        
+        .design-philosophy .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+            border-radius: 2px;
+        }
+        
+        .philosophy-content {
+            max-width: 1400px; /* Wider than other content */
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .philosophy-content p {
+            font-size: 1.2rem;
+            color: #5a6c7a;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
         /* Key Features */
         .features-section {
             margin: 6rem 0;
@@ -520,6 +561,8 @@
             transition: transform 0.1s ease;
             opacity: 0.7;
         }
+
+        
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
@@ -580,8 +623,9 @@
         </div>
 
         <!-- Technical Innovation -->
-        <section class="section">
+        <section class="section design-philosophy">
             <h2 class="section-title">Design Philosophy</h2>
+            <div class="philosophy-content">
             <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
                 <p style="font-size: 1.2rem; color: #5a6c7a; line-height: 1.9; margin-bottom: 2rem;">
                     This project represents the natural evolution of waste management technology. While the LitterMaster app educated users about proper sorting, the Smart Home Trash Sorter eliminates the need for user education entirely.
