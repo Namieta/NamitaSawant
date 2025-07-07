@@ -306,37 +306,37 @@
         }*/
 
         /* Base image styling (applies to all) */
-        .single-image-container img,
+        /*.single-image-container img,
         .prototype-item img {
             width: 100%;
             /*height: auto;*/
-            border-radius: 0;
+            /*border-radius: 0;
             object-fit: contain;
             box-shadow: none;
             border: none;
             margin-bottom: 15px;
-        }
+        }*/
         
         /* Individual image sizes */
-        .sketch-image {
-            max-width: 600px; /* Large size for sketch */
+        /*.sketch-image {
+            max-width: 600px; 
             max-height: 1000px;
         }
         
         .concept-a-image {
-            max-width: 300px; /* Small size for Concept A */
+            max-width: 300px; 
             max-height: 2000px;
         }
         
         .concept-b-image {
-            max-width: 450px; /* Medium size for Concept B */
+            max-width: 450px; 
             max-height: 1000px;
         }
         
         .final-design-image {
-            max-width: 500px; /* Large size for Final Design */
+            max-width: 500px; 
             max-height: 1000px;
-        }
+        }*/
 
         /* Single image section styling */
         .single-image-container {
@@ -551,9 +551,11 @@
             <p class="section-description">
                 Hand sketches exploring mechanical sorting mechanisms, user interaction flows, and internal component layout for the three-compartment system.
             </p>
-            <div class="single-image-container">
-                <img src="../images/TrashLines.png" alt="Initial concept sketches" class="sketch-image">
             </div>
+                    <img src="../images/TrashLines.png" 
+                     alt="Weekly Dashboard Feature" 
+                     style="width: 100%; max-width: auto; height: auto; border-radius: 20px; object-fit: cover;">
+                </div>
             <p class="image-caption">Initial concept sketches showing sorting mechanism and compartment design</p>
         </section>
         
@@ -564,20 +566,19 @@
                 Three iterative prototypes exploring different approaches to automated sorting, form factor optimization, and user accessibility.
             </p>
             <div class="prototype-gallery">
-                <div class="prototype-item">
-                    <img src="../images/TrashFront.png" alt="Concept A - Vertical sorting tower" class="concept-a-image">
-                    <h3 class="prototype-label">Concept A</h3>
-                    <p class="prototype-description">Vertical sorting tower with rotating compartments and overhead scanner assembly.</p>
+                    <img src="../images/TrashFront.png" 
+                     alt="Weekly Dashboard Feature" 
+                     style="width: 100%; max-width: auto; height: auto; border-radius: 20px; object-fit: cover;">
                 </div>
                 <div class="prototype-item">
-                    <img src="../images/TrashIso.png" alt="Concept B - Horizontal drawer system" class="concept-b-image">
-                    <h3 class="prototype-label">Concept B</h3>
-                    <p class="prototype-description">Horizontal drawer system with conveyor sorting and front-facing camera module.</p>
+                    <img src="../images/TrashIso.png" 
+                     alt="Weekly Dashboard Feature" 
+                     style="width: 100%; max-width: auto; height: auto; border-radius: 20px; object-fit: cover;">
                 </div>
                 <div class="prototype-item">
-                    <img src="../images/TrashBins.png" alt="Final Design - Cylindrical form" class="final-design-image">
-                    <h3 class="prototype-label">Final Design</h3>
-                    <p class="prototype-description">Sleek cylindrical form with three hidden compartments and top-mounted vision system.</p>
+                    <img src="../images/TrashBins.png" 
+                     alt="Weekly Dashboard Feature" 
+                     style="width: 100%; max-width: auto; height: auto; border-radius: 20px; object-fit: cover;">
                 </div>
             </div>
         </section>
