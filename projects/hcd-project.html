@@ -103,7 +103,7 @@
         .project-subtitle {
             font-size: 1.1rem;
             color: #7c8b9f;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             font-weight: 300;
         }
 
@@ -112,7 +112,7 @@
             height: 120px;
             background: transparent;
             border: none;
-            margin: 0 auto;
+            margin: 3rem auto 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -255,33 +255,47 @@
             object-fit: cover;
         }
 
-        /* Content Cards - Removed background and border styling */
-        .content-card {
+        /* Research Grid Layout */
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .research-item {
             background: transparent;
             padding: 2rem 1rem;
             border-radius: 0;
             backdrop-filter: none;
             border: none;
-            margin-bottom: 4rem;
             transition: none;
-            text-align: center;
+            text-align: left;
             box-shadow: none;
         }
 
-        .content-card h3 {
+        .research-item h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             color: #34495e;
-            margin-bottom: 2rem;
-            font-weight: 400;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
-        .content-card p {
+        .research-item p {
             color: #5a6c7a;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .research-subtitle {
             font-size: 1.1rem;
-            line-height: 1.8;
+            color: #7c8b9f;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            text-align: center;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 3rem auto;
         }
 
         /* Mobile Responsive */
@@ -304,8 +318,9 @@
                 direction: ltr;
             }
 
-            .container {
-                padding: 6rem 1rem 3rem;
+            .research-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
@@ -367,9 +382,9 @@
                 <h2 class="section-title">Solution</h2>
             </div>
             <div class="content-area">
-                <div class="content-card">
-                    <h3>LitterMaster App</h3>
-                    <p>A simple mobile app that helps New Yorkers quickly learn how to sort their waste—whether it belongs in trash, recycling, or compost—following NYC's specific rules. As the city's organics mandate begins in Fall 2024, LitterMaster supports residents in staying compliant and avoiding fines. More importantly, it encourages sustainable habits that contribute to NYC's goal of zero waste by 2030, turning everyday actions into a positive impact for the environment.</p>
+                <div style="text-align: center; padding: 2rem 1rem; margin-bottom: 4rem;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #34495e; margin-bottom: 2rem; font-weight: 400;">LitterMaster App</h3>
+                    <p style="color: #5a6c7a; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">A simple mobile app that helps New Yorkers quickly learn how to sort their waste—whether it belongs in trash, recycling, or compost—following NYC's specific rules. As the city's organics mandate begins in Fall 2024, LitterMaster supports residents in staying compliant and avoiding fines. More importantly, it encourages sustainable habits that contribute to NYC's goal of zero waste by 2030, turning everyday actions into a positive impact for the environment.</p>
                 </div>
             </div>
         </section>
@@ -434,51 +449,35 @@
             </div>
         </section>
 
-        <!-- 6. How We Started -->
+        <!-- 6. Research Section -->
         <section class="section section-center">
             <div class="section-header">
-                <h2 class="section-title">How We Started</h2>
-                <p class="section-description">
-                    We conducted 50+ interviews with NYC residents to understand their waste habits. We explored their interest in using an app like LitterMaster and gathered their thoughts on street trash and overflowing bins. These insights highlighted the need for a simple, effective tool to help people sort waste correctly.
+                <h2 class="section-title">Research</h2>
+                <p class="research-subtitle">
+                    In order to determine how to best help medically non-adherent patients, I had to take time to explore the context.
                 </p>
             </div>
-        </section>
-
-        <!-- 7. Why an App? -->
-        <section class="section section-center">
-            <div class="section-header">
-                <h2 class="section-title">Why an App?</h2>
-                <p class="section-description">
-                    Our motivation was to create a tool that empowers individuals to make informed decisions about waste disposal, bridging the gap between policy and everyday behavior. By educating users and simplifying the process, we aim to reduce contamination in recycling and compost streams, improve community participation, and support a cleaner, healthier city for all.
-                </p>
-            </div>
-        </section>
-
-        <!-- 8. Personal Observation -->
-        <section class="section section-center">
-            <div class="section-header">
-                <h2 class="section-title">Personal Observation</h2>
-            </div>
-            <div class="content-area">
-                <div class="content-card">
+            <div class="research-grid">
+                <div class="research-item">
+                    <h3>How We Started</h3>
+                    <p>We conducted 50+ interviews with NYC residents to understand their waste habits. We explored their interest in using an app like LitterMaster and gathered their thoughts on street trash and overflowing bins. These insights highlighted the need for a simple, effective tool to help people sort waste correctly.</p>
+                </div>
+                <div class="research-item">
+                    <h3>Why an App?</h3>
+                    <p>Our motivation was to create a tool that empowers individuals to make informed decisions about waste disposal, bridging the gap between policy and everyday behavior. By educating users and simplifying the process, we aim to reduce contamination in recycling and compost streams, improve community participation, and support a cleaner, healthier city for all.</p>
+                </div>
+                <div class="research-item">
+                    <h3>Personal Observation</h3>
                     <p>We walked around neighborhoods and noticed garbage bags piled around mailboxes, blocking hydrants, and cluttering sidewalks. Even inside buildings, sorting waste was often confusing or completely absent. Through conversations with neighbors and building staff, it became clear that many people didn't know how to properly separate their waste, and few had access to multiple bins at home. Even when bins were present, residents weren't sure what belonged where.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- 9. Scale of the Problem -->
-        <section class="section section-center">
-            <div class="section-header">
-                <h2 class="section-title">Scale of the Problem</h2>
-            </div>
-            <div class="content-area">
-                <div class="content-card">
+                <div class="research-item">
+                    <h3>Scale of the Problem</h3>
                     <p>According to the New York League of Conservation Voters, NYC produces nearly 13,000 tons of waste every day, and 81% of it ends up in landfills or incinerators, releasing harmful methane and contributing to environmental damage. One-third of this waste is organic, yet citywide composting participation remains under 5%. To tackle this, NYC introduced a citywide organics mandate, rolling out borough by borough and becoming mandatory for all residential buildings by Fall 2024. Residents must now separate compostable items like food scraps and soiled paper into brown bins for curbside pickup — or face fines starting in 2025. While this is a major infrastructure improvement, behavioral change remains a barrier.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 10. Feedback -->
+        <!-- 7. Feedback -->
         <section class="section section-center">
             <div class="section-header">
                 <h2 class="section-title">Feedback</h2>
@@ -493,7 +492,7 @@
             </div>
         </section>
 
-        <!-- 11. Journey Map -->
+        <!-- 8. Journey Map -->
         <section class="section section-center">
             <div class="section-header">
                 <h2 class="section-title">Journey Map</h2>
