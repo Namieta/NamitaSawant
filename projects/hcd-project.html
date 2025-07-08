@@ -110,17 +110,16 @@
         .logo-placeholder {
             width: 120px;
             height: 120px;
-            background: #ffffff;
-            border-radius: 0px;
+            background: transparent;
+            border: none;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #333333; /* Changed from white to dark for visibility */
+            color: #333333;
             font-weight: 400;
             font-size: 0.9rem;
-            border: none; /* Remove any border */
-            box-shadow: none; /* Remove the shadow that creates rectangle effect */
+            box-shadow: none;
             animation: float 6s ease-in-out infinite;
         }
 
@@ -149,17 +148,6 @@
             }
         }
 
-        /* Alternating Section Layouts */
-        .section-left .section-header {
-            text-align: left;
-            margin-bottom: 3rem;
-        }
-
-        .section-right .section-header {
-            text-align: right;
-            margin-bottom: 3rem;
-        }
-
         .section-center .section-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -173,28 +161,6 @@
             position: relative;
             font-weight: 400;
             letter-spacing: -0.5px;
-        }
-
-        .section-left .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: #7c8b9f;
-            border-radius: 1px;
-        }
-
-        .section-right .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 0;
-            width: 60px;
-            height: 2px;
-            background: #7c8b9f;
-            border-radius: 1px;
         }
 
         .section-center .section-title::after {
@@ -215,17 +181,6 @@
             color: #5a6c7a;
             line-height: 1.8;
             font-weight: 300;
-        }
-
-        .section-left .section-description {
-            margin-right: auto;
-        }
-
-        .section-right .section-description {
-            margin-left: auto;
-        }
-
-        .section-center .section-description {
             margin: 0 auto;
         }
 
@@ -234,46 +189,14 @@
             margin-top: 4rem;
         }
 
-        /* Ideation Section */
-        .ideation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .ideation-placeholder {
-            height: 280px;
-            background: linear-gradient(135deg, #f8fafc, #e8f4f0);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7c8a;
-            font-weight: 400;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 20px rgba(107, 124, 138, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(107, 124, 138, 0.06);
-        }
-
-        .ideation-placeholder:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(107, 124, 138, 0.12);
-            background: linear-gradient(135deg, #ffffff, #f0f4f3);
-        }
-
         /* App Features - Zigzag Layout */
-        /*.features-container {
-            margin-top: 4rem;
-        }*/
-
         .features-grid {
             margin: 2rem 0;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
+
         .feature-item {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -297,7 +220,7 @@
 
         .feature-content {
             text-align: center;
-            padding: 0.5rem; /* Reduced padding for closer content */
+            padding: 0.5rem;
         }
         
         .feature-content h3 {
@@ -321,7 +244,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0.5rem; /* Reduced padding for closer images */
+            padding: 0.5rem;
         }
 
         .feature-item img {
@@ -332,201 +255,33 @@
             object-fit: cover;
         }
 
-        .feature-placeholder {
-            height: 320px;
-            background: linear-gradient(135deg, #f8fafc, #e8f4f0);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7c8a;
+        /* Content Cards - Removed background and border styling */
+        .content-card {
+            background: transparent;
+            padding: 2rem 1rem;
+            border-radius: 0;
+            backdrop-filter: none;
+            border: none;
+            margin-bottom: 4rem;
+            transition: none;
+            text-align: center;
+            box-shadow: none;
+        }
+
+        .content-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #34495e;
+            margin-bottom: 2rem;
             font-weight: 400;
-            font-size: 0.95rem;
-            box-shadow: 0 6px 25px rgba(107, 124, 138, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(107, 124, 138, 0.06);
         }
 
-        .feature-placeholder:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(107, 124, 138, 0.12);
-            background: linear-gradient(135deg, #ffffff, #f0f4f3);
-        }
-
-        /* Full Image Section */
-        .full-image-section {
-            margin: 6rem 0;
-        }
-
-        .full-image-placeholder {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, #e8f4f0, #d6e8e2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7c8a;
+        .content-card p {
+            color: #5a6c7a;
             font-size: 1.1rem;
-            font-weight: 400;
-            box-shadow: 0 8px 30px rgba(107, 124, 138, 0.1);
-            margin-top: 4rem;
-            border: 1px solid rgba(107, 124, 138, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .full-image-placeholder:hover {
-            box-shadow: 0 12px 40px rgba(107, 124, 138, 0.15);
-        }
-
-        /* Feedback Section */
-        .feedback-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .feedback-card {
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(107, 124, 138, 0.08);
-            border-left: 3px solid #a8b8c8;
-        }
-
-        .feedback-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 8px 25px rgba(107, 124, 138, 0.1);
-        }
-
-        .feedback-placeholder {
-            height: 160px;
-            background: linear-gradient(135deg, #f8fafc, #e8f4f0);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7c8a;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            font-size: 0.9rem;
-        }
-
-        .feedback-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: #34495e;
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .feedback-card p {
-            color: #5a6c7a;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Video Section */
-        .video-section {
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            backdrop-filter: blur(15px);
-            margin: 6rem 0;
-            border: 1px solid rgba(107, 124, 138, 0.08);
-        }
-
-        .video-placeholder {
-            width: 100%;
+            line-height: 1.8;
             max-width: 800px;
-            height: 450px;
-            background: linear-gradient(135deg, #e8f4f0, #d6e8e2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7c8a;
-            font-size: 1rem;
-            font-weight: 400;
-            margin: 2rem auto 0;
-            box-shadow: 0 6px 25px rgba(107, 124, 138, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(107, 124, 138, 0.08);
-        }
-
-        .video-placeholder:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 35px rgba(107, 124, 138, 0.15);
-        }
-
-        /* Process Timeline */
-        .process-timeline {
-            position: relative;
-            margin: 4rem 0;
-            padding-left: 3rem;
-        }
-
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            left: 12px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #a8b8c8;
-            border-radius: 1px;
-        }
-
-        .timeline-item {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-dot {
-            width: 16px;
-            height: 16px;
-            background: #7c8b9f;
-            border-radius: 50%;
-            position: absolute;
-            left: -3rem;
-            top: 4px;
-            border: 3px solid white;
-            box-shadow: 0 2px 8px rgba(107, 124, 138, 0.2);
-        }
-
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.6);
-            padding: 1.8rem;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(107, 124, 138, 0.06);
-        }
-
-        .timeline-content:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: translateX(8px);
-            box-shadow: 0 4px 20px rgba(107, 124, 138, 0.08);
-        }
-
-        .timeline-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #34495e;
-            margin-bottom: 0.8rem;
-            font-weight: 400;
-        }
-
-        .timeline-content p {
-            color: #5a6c7a;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            margin: 0 auto;
         }
 
         /* Mobile Responsive */
@@ -551,30 +306,6 @@
 
             .container {
                 padding: 6rem 1rem 3rem;
-            }
-
-            .process-timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-dot {
-                left: -2rem;
-            }
-
-            .section-left .section-header,
-            .section-right .section-header {
-                text-align: center;
-            }
-
-            .section-left .section-title::after,
-            .section-right .section-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .section-left .section-description,
-            .section-right .section-description {
-                margin: 0 auto;
             }
         }
 
@@ -609,90 +340,44 @@
     </nav>
 
     <div class="container">
-        <!-- Project Header -->
-        <div class="project-header floating">
+        <!-- 1. Human-Centered Design Heading + Picture -->
+        <div class="project-header">
             <h1 class="project-title">Human-Centered Design</h1>
             <p class="project-subtitle">Interaction Design • User Experience • Product Innovation</p>
             <div class="logo-placeholder">
                 <img src="../images/AppLogo1.png" 
-                     alt="Weekly Dashboard Feature" 
+                     alt="LitterMaster App Logo" 
                      style="width: 100%; max-width: auto; height: auto; border-radius: 0px; object-fit: cover;">
-                </div>
             </div>
         </div>
 
-        <!-- Idea Generation Section -->
+        <!-- 2. Problem Statement -->
         <section class="section section-center">
             <div class="section-header">
                 <h2 class="section-title">Problem Statement</h2>
-                <p class="section-description" style="max-width: 900px; margin: 0 auto 4rem;">
-                    This project was part of my Human-Centered Design and Innovation course at Columbia University. The prompt was to create something that could help “Make a Better New Yorker.” I was drawn to the issue of waste management after reading a New York Times article describing how some NYC streets — especially those without alleys — turn into trash corridors before pickup days. On one block alone, over 370 bags were recorded lining the sidewalks.
-                    That article raised a question for me: Are New Yorkers really equipped to handle their waste responsibly?
+                <p class="section-description" style="max-width: 900px;">
+                    This project was part of my Human-Centered Design and Innovation course at Columbia University. The prompt was to create something that could help "Make a Better New Yorker." I was drawn to the issue of waste management after reading a New York Times article describing how some NYC streets — especially those without alleys — turn into trash corridors before pickup days. On one block alone, over 370 bags were recorded lining the sidewalks. That article raised a question for me: Are New Yorkers really equipped to handle their waste responsibly?
+                </p>
+            </div>
+        </section>
+
+        <!-- 3. Solution -->
+        <section class="section section-center">
+            <div class="section-header">
+                <h2 class="section-title">Solution</h2>
+            </div>
             <div class="content-area">
-                <div style="margin-top: 5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-                    <div style="background: rgba(255, 255, 255, 0.8); padding: 4rem 3.5rem; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(107, 124, 138, 0.06); margin-bottom: 4rem; transition: all 0.3s ease; text-align: center; box-shadow: 0 4px 20px rgba(107, 124, 138, 0.08);">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #34495e; margin-bottom: 2rem; font-weight: 400;">Personal Observation</h3>
-                        <p style="color: #5a6c7a; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">We walked around neighborhoods and noticed garbage bags piled around mailboxes, blocking hydrants, and cluttering sidewalks. Even inside buildings, sorting waste was often confusing or completely absent.
-                        Through conversations with neighbors and building staff, it became clear that many people didn’t know how to properly separate their waste, and few had access to multiple bins at home. Even when bins were present, residents weren’t sure what belonged where.</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.8); padding: 4rem 3.5rem; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(107, 124, 138, 0.06); margin-bottom: 4rem; transition: all 0.3s ease; text-align: center; box-shadow: 0 4px 20px rgba(107, 124, 138, 0.08);">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #34495e; margin-bottom: 2rem; font-weight: 400;">The Scale of the Problem</h3>
-                        <p style="color: #5a6c7a; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">According to the New York League of Conservation Voters, NYC produces nearly 13,000 tons of waste every day, and 81% of it ends up in landfills or incinerators, releasing harmful methane and contributing to environmental damage. One-third of this waste is organic, yet citywide composting participation remains under 5%. To tackle this, NYC introduced a citywide organics mandate, rolling out borough by borough and becoming mandatory for all residential buildings by Fall 2024. Residents must now separate compostable items like food scraps and soiled paper into brown bins for curbside pickup — or face fines starting in 2025. While this is a major infrastructure improvement, behavioral change remains a barrier.</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.8); padding: 4rem 3.5rem; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(107, 124, 138, 0.06); margin-bottom: 4rem; transition: all 0.3s ease; text-align: center; box-shadow: 0 4px 20px rgba(107, 124, 138, 0.08);">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #34495e; margin-bottom: 2rem; font-weight: 400;">Solution: LitterMaster App</h3>
-                        <p style="color: #5a6c7a; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">It is a simple mobile app that helps New Yorkers quickly learn how to sort their waste—whether it belongs in trash, recycling, or compost—following NYC's specific rules. As the city's organics mandate begins in Fall 2024, LitterMaster supports residents in staying compliant and avoiding fines. More importantly, it encourages sustainable habits that contribute to NYC's goal of zero waste by 2030, turning everyday actions into a positive impact for the environment.</p>
-                    </div>
+                <div class="content-card">
+                    <h3>LitterMaster App</h3>
+                    <p>A simple mobile app that helps New Yorkers quickly learn how to sort their waste—whether it belongs in trash, recycling, or compost—following NYC's specific rules. As the city's organics mandate begins in Fall 2024, LitterMaster supports residents in staying compliant and avoiding fines. More importantly, it encourages sustainable habits that contribute to NYC's goal of zero waste by 2030, turning everyday actions into a positive impact for the environment.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Motivation Section -->
-        <section class="section section-center">
-            <div class="section-header">
-                <h2 class="section-title">Why an App?</h2>
-                <p class="section-description">
-                    Our motivation was to create a tool that empowers individuals to make informed decisions about waste disposal, bridging the gap between policy and everyday behavior. By educating users and simplifying the process, we aim to reduce contamination in recycling and compost streams, improve community participation, and support a cleaner, healthier city for all.
-                </p>
-            </div>
-            <div class="content-area">
-                <!-- Add your motivation content here -->
-            </div>
-        </section>
-
-        <!-- How It Started Section -->
-        <section class="section section-center">
-            <div class="section-header">
-                <h2 class="section-title">How We Started</h2>
-                <p class="section-description">
-                    We conducted 50+ interviews with NYC residents to understand their waste habits. We explored their interest in using an app like LitterMaster and gathered their thoughts on street trash and overflowing bins. These insights highlighted the need for a simple, effective tool to help people sort waste correctly.
-                </p>
-            </div>
-            <div class="content-area">
-                <!-- Add your journey content here -->
-            </div>
-        </section>
-
-        <!-- Ideation Phase Section -->
-        <section class="section section-center">
-            <div class="section-header">
-                <h2 class="section-title">Journey Map</h2>
-                <p class="section-description">
-                </p>
-            </div>
-                    <img src="../images/TeamWorkflow.png" 
-                     alt="Weekly Dashboard Feature" 
-                     style="width: 100%; max-width: auto; height: auto; border-radius: 20px; object-fit: cover;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Features & Solutions -->
+        <!-- 4. Key Features & Solutions -->
         <section class="section section-center">
             <div class="section-header">
                 <h2 class="section-title">Key Features & Solutions</h2>
-                <p class="section-description">  
-                </p>
             </div>
             <div class="features-container">
                 <div class="feature-item">
@@ -701,57 +386,99 @@
                         <p>Shows users their waste patterns, including the percentage of waste produced and sorted each week.</p>
                     </div>
                     <img src="../images/Feature1.png" 
-                     alt="Weekly Dashboard Feature" 
-                     style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; object-fit: cover;">
-                    </div> 
+                         alt="Weekly Dashboard Feature" 
+                         style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; object-fit: cover;">
+                </div> 
                 <div class="feature-item">
                     <div class="feature-content">
                         <h3>Smart Scan</h3>
                         <p>Uses computer vision to identify items and guide users on the correct disposal method</p>
                     </div>
                     <img src="../images/SmartScan.png" 
-                     alt="Smart Scan Feature" 
-                     style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; object-fit: cover;">
-                    </div>
+                         alt="Smart Scan Feature" 
+                         style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; object-fit: cover;">
+                </div>
                 <div class="feature-item">
                     <div class="feature-content">
                         <h3>Waste Tracking</h3>
                         <p>Monitors when and where waste is generated and collected across the city.</p>
                     </div>
                     <img src="../images/WasteTracking.png" 
-                     alt="Weekly Dashboard Feature" 
-                     style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; object-fit: cover;">
-                    </div> 
+                         alt="Waste Tracking Feature" 
+                         style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; object-fit: cover;">
+                </div> 
                 <div class="feature-item">
                     <div class="feature-content">
                         <h3>Impact Meter</h3>
                         <p>Calculates and displays the amount of CO₂ saved through proper waste segregation, helping users see their environmental contribution</p>
                     </div>
                     <img src="../images/ImpactMeter.png" 
-                     alt="Smart Scan Feature" 
-                     style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; object-fit: cover;">
-                    </div>
-                </div>
+                         alt="Impact Meter Feature" 
+                         style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; object-fit: cover;">
                 </div>
             </div>
         </section>
 
-        <!-- Full Application Overview -->
+        <!-- 5. Complete Application Overview -->
         <section class="section section-center">
             <div class="section-header">
                 <h2 class="section-title">Complete Application Overview</h2>
                 <p class="section-description">
-                    We use computer vision to identify the type of trash being thrown away, and based on that, we calculate the amount and type of waste to show users how much CO₂ they’re helping save. We also added fun, educational games to help people learn about recycling in a more interactive way. Overall, we focused on creating a seamless experience that’s not just functional but also encourages better habits through awareness and small incentives.
+                    We use computer vision to identify the type of trash being thrown away, and based on that, we calculate the amount and type of waste to show users how much CO₂ they're helping save. We also added fun, educational games to help people learn about recycling in a more interactive way. Overall, we focused on creating a seamless experience that's not just functional but also encourages better habits through awareness and small incentives.
                 </p>
             </div>
-            </div>
-                    <img src="../images/Mockup.png" 
-                     alt="Weekly Dashboard Feature" 
+            <div class="content-area" style="text-align: center;">
+                <img src="../images/Mockup.png" 
+                     alt="Complete App Overview" 
                      style="width: 100%; max-width: auto; height: auto; border-radius: 20px; object-fit: cover;">
             </div>
         </section>
 
-        <!-- Feedback Section -->
+        <!-- 6. How We Started -->
+        <section class="section section-center">
+            <div class="section-header">
+                <h2 class="section-title">How We Started</h2>
+                <p class="section-description">
+                    We conducted 50+ interviews with NYC residents to understand their waste habits. We explored their interest in using an app like LitterMaster and gathered their thoughts on street trash and overflowing bins. These insights highlighted the need for a simple, effective tool to help people sort waste correctly.
+                </p>
+            </div>
+        </section>
+
+        <!-- 7. Why an App? -->
+        <section class="section section-center">
+            <div class="section-header">
+                <h2 class="section-title">Why an App?</h2>
+                <p class="section-description">
+                    Our motivation was to create a tool that empowers individuals to make informed decisions about waste disposal, bridging the gap between policy and everyday behavior. By educating users and simplifying the process, we aim to reduce contamination in recycling and compost streams, improve community participation, and support a cleaner, healthier city for all.
+                </p>
+            </div>
+        </section>
+
+        <!-- 8. Personal Observation -->
+        <section class="section section-center">
+            <div class="section-header">
+                <h2 class="section-title">Personal Observation</h2>
+            </div>
+            <div class="content-area">
+                <div class="content-card">
+                    <p>We walked around neighborhoods and noticed garbage bags piled around mailboxes, blocking hydrants, and cluttering sidewalks. Even inside buildings, sorting waste was often confusing or completely absent. Through conversations with neighbors and building staff, it became clear that many people didn't know how to properly separate their waste, and few had access to multiple bins at home. Even when bins were present, residents weren't sure what belonged where.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Scale of the Problem -->
+        <section class="section section-center">
+            <div class="section-header">
+                <h2 class="section-title">Scale of the Problem</h2>
+            </div>
+            <div class="content-area">
+                <div class="content-card">
+                    <p>According to the New York League of Conservation Voters, NYC produces nearly 13,000 tons of waste every day, and 81% of it ends up in landfills or incinerators, releasing harmful methane and contributing to environmental damage. One-third of this waste is organic, yet citywide composting participation remains under 5%. To tackle this, NYC introduced a citywide organics mandate, rolling out borough by borough and becoming mandatory for all residential buildings by Fall 2024. Residents must now separate compostable items like food scraps and soiled paper into brown bins for curbside pickup — or face fines starting in 2025. While this is a major infrastructure improvement, behavioral change remains a barrier.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Feedback -->
         <section class="section section-center">
             <div class="section-header">
                 <h2 class="section-title">Feedback</h2>
@@ -759,50 +486,24 @@
                     The feedback highlights a strong appreciation for the concept and video skits, especially for raising awareness about waste management, though concerns were raised about feasibility and user motivation. Many users expressed reluctance to scan trash or use an app before disposal, citing laziness, lack of time, or lack of incentive.
                 </p>
             </div>
+            <div class="content-area" style="text-align: center;">
+                <img src="../images/PresentationTrash.png" 
+                     alt="Feedback Presentation" 
+                     style="width: 100%; max-width: 700px; height: 700px; border-radius: 20px; object-fit: contain;">
             </div>
-                    <img src="../images/PresentationTrash.png" 
-                     alt="Weekly Dashboard Feature" 
-                     style="width: 100%; max-width: 700px; height: 700px; border-radius: 20px; align-items: center; object-fit: contain;">
-            </div>
-            <!--<div class="feedback-grid">
-                <div class="feedback-card">
-                    <div class="feedback-placeholder">
-                        User Testing Session 1
-                    </div>
-                    <h4>Initial Feedback</h4>
-                    <p>[Key insights from first round of testing]</p>
-                </div>
-                <div class="feedback-card">
-                    <div class="feedback-placeholder">
-                        Iteration & Improvements
-                    </div>
-                    <h4>Design Refinements</h4>
-                    <p>[Changes made based on feedback]</p>
-                </div>
-                <div class="feedback-card">
-                    <div class="feedback-placeholder">
-                        Final Validation
-                    </div>
-                    <h4>Final Testing</h4>
-                    <p>[Results from final validation testing]</p>
-                </div>
-            </div> -->
         </section>
 
-        <!-- Video Demonstration Section -->
-          <!-- <section class="section section-center">
-            <div class="video-section">
-                <h2 class="section-title">Project Demonstration</h2>
-                <p class="section-description">
-                    [Space for describing what the video showcases - walkthrough, user interactions, key features in action]
-                </p>
-                <div class="video-placeholder">
-                    📹 Project Demo Video
-                    <br>
-                    <small>Video Player Placeholder</small>
-                </div>
+        <!-- 11. Journey Map -->
+        <section class="section section-center">
+            <div class="section-header">
+                <h2 class="section-title">Journey Map</h2>
             </div>
-        </section>-->
+            <div class="content-area" style="text-align: center;">
+                <img src="../images/TeamWorkflow.png" 
+                     alt="Project Journey Map" 
+                     style="width: 100%; max-width: auto; height: auto; border-radius: 20px; object-fit: cover;">
+            </div>
+        </section>
     </div>
 
     <script>
@@ -825,20 +526,6 @@
             }, 300);
         }
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Enhanced scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -857,17 +544,6 @@
         // Observe all sections for animations
         document.querySelectorAll('.section').forEach(section => {
             observer.observe(section);
-        });
-
-        // Add hover effects for interactive elements
-        document.querySelectorAll('.ideation-placeholder, .feature-placeholder').forEach(element => {
-            element.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-4px)';
-            });
-            
-            element.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
         });
 
         // Page load animation
