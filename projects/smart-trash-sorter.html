@@ -383,9 +383,9 @@
         <!-- Project Header -->
         <div class="project-header">
             <h1 class="project-title">Smart Home Trash Sorter</h1>
-            <p class="project-subtitle">IoT Product Design • Automation • Sustainable Technology</p>
+            <p class="project-subtitle">Technology for Sustainability</p>
             <div class="project-intro">
-                <p>An extension of the LitterMaster app concept that asks: "Why bother users with sorting trash when the bin can do it automatically?" This smart home solution combines computer vision, mechanical engineering, and IoT connectivity to create an autonomous waste sorting system that eliminates user effort while maximizing recycling efficiency.</p>
+                <p>After receiving the feedback, I realized it really made sense—everyone values convenience in their daily lives! So instead of expecting people to learn all the details about sorting their trash, I thought, why not let AI and the bin handle it for them?</p>
             </div>
         </div>
 
@@ -393,8 +393,9 @@
         <section class="section design-philosophy">
             <h2 class="section-title">Design Philosophy</h2>
             <div class="philosophy-content">
-                <p>This project represents the natural evolution of waste management technology. While the LitterMaster app educated users about proper sorting, the Smart Home Trash Sorter eliminates the need for user education entirely.</p>
-                <p>By automating the sorting process at the point of disposal, we remove human error, increase recycling rates, and make sustainable living effortless. The corded design ensures reliability—because sustainability shouldn't depend on remembering to charge your trash can.</p>
+                <p>Many automatic trash-sorting bins available today are built for commercial use—they’re bulky and not designed for home environments. So, I set out to design a compact, home-friendly solution.</p>
+                <p>This project is a natural step forward in waste management. While the LitterMaster app focused on educating users about proper sorting, the Smart Home Trash Sorter takes it a step further by automating the process—removing the effort entirely.</p>
+                <p>By sorting waste right at the point of disposal, the goal was to reduce human error, improve recycling rates, and make sustainable living easier for everyone. The corded design ensures it’s always ready to go—because remembering to charge your trash can shouldn’t be part of your daily routine.</p>
             </div>
         </section>
         
@@ -402,7 +403,7 @@
         <section class="section">
             <h2 class="section-title">Initial Thesis</h2>
             <p class="section-description">
-                The core insight driving this project: if we can teach phones to recognize faces, why can't we teach trash bins to recognize recyclables?
+                I wanted to make waste sorting at home simple, efficient, and accessible—so I designed a smart trash bin that automatically separates waste into three categories: recycle, non-recycle, and compost. Most sorting systems available are bulky and made for commercial use, so I focused on creating something compact and home-friendly. The bin has three separate drawers made from corrosion-resistant 6061 aluminum alloy for durability. Inside, the compartments are fitted with washable PLA liners, keeping things hygienic and easy to clean. I paid close attention to ergonomics to ensure the bin is comfortable to use and easy to install in a typical household. It’s designed to fit seamlessly into daily routines without taking up extra space. My goal was to remove the guesswork from sorting and make sustainable living feel effortless.
             </p>
         </section>
 
@@ -410,7 +411,10 @@
         <section class="section">
             <h2 class="section-title">Design Process</h2>
             <p class="section-description">
-                Hand sketches exploring mechanical sorting mechanisms, user interaction flows, and internal component layout for the three-compartment system.
+                I began with quick hand sketches to explore form, function, and user interaction.
+                These sketches helped me visualize the layout of the three-bin system and refine ergonomic details.
+                Once the concept was clear, I transitioned to SolidWorks for precise 3D modeling and mechanical design.
+                This allowed me to simulate fit, material behavior, and assembly before moving toward prototyping.
             </p>
             <div class="single-image-container">
                 <img src="../images/TrashLines.png" 
@@ -419,6 +423,25 @@
             </div>
             <p class="image-caption">Initial concept sketches showing sorting mechanism and compartment design</p>
         </section>
+
+        <!-- Sketching Process -->
+        <section class="section">
+            <h2 class="section-title">How the Sorting Works</h2>
+            <p class="section-description">
+                Users simply toss waste into a single top opening, just like a regular bin. 
+                Inside, a set of smart sensors work together to identify the type of waste without relying on cameras. 
+                An inductive sensor detects metals, capacitive sensors analyze material properties like plastic or organic matter, and a weight sensor measures the item's mass to improve classification accuracy. 
+                For compostable waste, a gas sensor can detect organic gases to confirm if the item belongs in the compost bin. 
+                Based on this combined sensor data, a microcontroller instantly directs the waste via a mechanical flap into one of three compartments: recycle, non-recycle, or compost. This approach ensures reliable, hands-free sorting in any lighting condition while keeping the system compact and user-friendly.
+            </p>
+            <div class="single-image-container">
+                <img src="../images/TrashLines.png" 
+                     alt="Weekly Dashboard Feature" 
+                     style="width: 100%; max-width: 200px; height: 400px; border-radius: 20px; object-fit: cover;">
+            </div>
+            <p class="image-caption">Initial concept sketches showing sorting mechanism and compartment design</p>
+        </section>
+        
         
         <!-- 3D Prototypes -->
         <section class="section">
@@ -435,7 +458,7 @@
                     </div>
                     <div class="prototype-item">
                         <img src="../images/TrashIso.jpeg" alt="Concept B - Horizontal drawer system"
-                        style="max-width: 800px; height: 800px; object-fit: cover;">
+                        style="max-width: 700px; height: 700px; object-fit: cover;">
                     </div>
                 </div>
                 
@@ -450,7 +473,8 @@
                         </p>
                     </div>
                     <div class="final-image">
-                        <img src="../images/TrashBins.png" alt="Final Design - Cylindrical form">
+                        <img src="../images/TrashBins.png" alt="Final Design - Cylindrical form"
+                        style="max-width: 400px; height: 700px; object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -478,11 +502,11 @@
                     <p class="feature-text">Connects with existing app ecosystem to track household waste patterns and environmental impact.</p>
                 </div>
 
-                <div class="feature-item">
+                <!--<div class="feature-item">
                     <span class="feature-icon">🤖</span>
                     <h3 class="feature-title">Computer Vision</h3>
                     <p class="feature-text">Advanced image recognition trained on NYC-specific waste categories and disposal guidelines.</p>
-                </div>
+                </div>-->
             </div>
         </section>
     </div>
