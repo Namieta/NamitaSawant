@@ -285,6 +285,27 @@
             padding-left: 0;
         }
 
+        .about-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(248, 187, 217, 0.3);
+            color: #5D4E60;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 2px solid rgba(248, 187, 217, 0.5);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .about-button:hover {
+            background: rgba(248, 187, 217, 0.5);
+            transform: translateY(-2px);
+            color: #4A3D4F;
+            box-shadow: 0 5px 15px rgba(248, 187, 217, 0.3);
+        }
+
         .about-text h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -538,6 +559,7 @@
                     <h2>About Me</h2>
                     <p>5'4", quirky, and smart</p>
                     <p>I know, I know!</p>
+                    <a href="about.html" class="about-button">Learn More About Me</a> 
                 </div>
                 <div class="about-image fade-in">
                     <img src="images/IMG_6531.jpg" alt="Namita Sawant" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover;">
