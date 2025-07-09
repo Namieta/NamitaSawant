@@ -274,7 +274,18 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            animation: videoSequence 15s ease-in-out infinite;
+            /*animation: videoSequence 15s ease-in-out infinite;*/
+            opacity: 0;
+        }
+
+        fade-in {
+            transition: opacity 0.8s ease-in-out; /* Fast fade in */
+            opacity: 1;
+        }
+        
+        .fade-out {
+            transition: opacity 2.5s ease-in-out; /* Slow fade out */
+            opacity: 0;
         }
 
         @keyframes videoSequence {
