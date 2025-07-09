@@ -274,6 +274,14 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
+            animation: videoSequence 10s ease-in-out infinite;
+        }
+
+        @keyframes videoSequence {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
         }
         
         .video-overlay {
