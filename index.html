@@ -349,7 +349,7 @@
         }
 
         /* About Section */
-        .about {
+/*         .about {
             padding: 7rem 0;
             background: linear-gradient(135deg, #f6e4e8 0%, #faf0f2 100%);
         }
@@ -374,33 +374,33 @@
             color: #64748b;
         } */
 
-         .about-text {
+/*          .about-text { */
 /*             flex: 1;// */
-            text-align: left;
-            padding-right: 0;
+/*             text-align: left;
+            padding-right: 0; */
         }
 
-        .about-text1 {
+/*         .about-text1 {
             font-family: 'Allura', cursive;
             font-size: 4rem;
-            font-weight: 300;
+            font-weight: 300; */
 /*             text-align: left;
             padding-right: 0; */
 /*             color: #c04561;
             text-decoration: none; */
         }
 
-        .about-text2 {
+/*         .about-text2 {
             font-family: "STIX Two Text", serif;
             font-size: 2.5rem;
-            font-weight: 300;
+            font-weight: 300; */
 /*             text-align: left;
             padding-right: 0; */
 /*             color: #c04561;
             text-decoration: none; */
         }
         
-        .about-content {
+/*         .about-content {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -411,11 +411,11 @@
 
         .about-image {
 /*             flex: 1; */
-            text-align: center;
+/*             text-align: center; */
 /*             padding-left: 0; */
         }
 
-        .about-button {
+/*         .about-button {
             display: inline-block;
             padding: 10px 20px;
             background: rgba(248, 187, 217, 0.3);
@@ -434,9 +434,88 @@
             transform: translateY(-2px);
             color: #4A3D4F;
             box-shadow: 0 5px 15px rgba(248, 187, 217, 0.3);
+        } */ */
+ */
+
+/* Replace your about section CSS with this: */
+        .about {
+            padding: 7rem 0;
+            background: linear-gradient(135deg, #f6e4e8 0%, #faf0f2 100%);
+        }
+        
+        .about-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 7rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .about-text1 {
+            font-family: 'Allura', cursive;
+            font-size: 4rem;
+            font-weight: 300;
+            color: #c04561;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text2 {
+            font-family: "STIX Two Text", serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #c04561;
+            margin-bottom: 3rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(248, 187, 217, 0.3);
+            color: #5D4E60;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 2px solid rgba(248, 187, 217, 0.5);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .about-button:hover {
+            background: rgba(248, 187, 217, 0.5);
+            transform: translateY(-2px);
+            color: #4A3D4F;
+            box-shadow: 0 5px 15px rgba(248, 187, 217, 0.3);
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .about-text1 {
+                font-size: 3rem;
+            }
+            
+            .about-text2 {
+                font-size: 2rem;
+            }
         }
 
-        .about-text h2 {
+/*         .about-text h2 {
             font-family: 'Allura', cursive;
             font-size: 6 rem;
             font-weight: 400;
@@ -456,11 +535,11 @@
             text-decoration: none;
             margin-bottom: 3rem;
             color: #c04561;
-        }
+        } */
 
-        .about-image {
+/*         .about-image {
             text-align: center;
-        }
+        } */
 
         /* Portfolio Section */
         .portfolio {
@@ -702,11 +781,11 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+<!--     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
 <!--                 <div class="about-text fade-in"> -->
-                     <h2 class="about-text1"> Meet Namita</h2>
+<!--                      <h2 class="about-text1"> Meet Namita</h2>
                       <p class="about-text2"> 5'4", quirky, and smart</p>
                     <a href="about.html" class="about-button">More About Me</a> 
                 </div>
@@ -715,7 +794,22 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --> -->
+
+    <section id="about" class="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <h2 class="about-text1">Meet Namita</h2>
+                <p class="about-text2">5'4", quirky, and smart</p>
+                <a href="about.html" class="about-button">More About Me</a> 
+            </div>
+            <div class="about-image fade-in">
+                <img src="images/IMG_6532.jpg" alt="Namita Sawant" style="width: 500px; height: 500px; border-radius: 4%; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Portfolio Section -->
     <!-- <section id="portfolio" class="portfolio">
