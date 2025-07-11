@@ -41,28 +41,14 @@
             padding: 0 2rem;
         }
 
-/*         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #d63384;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-style: italic;
-            letter-spacing: 1px;
-            line-height: 1.2;
-            transform: scaleY(0.95);
-        } */
-
         .logo {
             font-family: 'Herr Von Muellerhoff', cursive;
             font-size: 4rem;
             font-weight: 400;
             color: #c04561;
             text-decoration: none;
-/*             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
-/*             font-style: normal; */
             letter-spacing: 2px;
         }
-
 
         .back-link {
             color: #6b7c8a;
@@ -215,7 +201,6 @@
 
         .image-gallery {
             display: flex;
-            /*grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));*/
             gap: 20px;
             align-items: flex-start;
         }
@@ -225,39 +210,26 @@
             text-align: center;
         }
 
-        .gallery-item:hover {
+        .gallery-item img {
             width: 100%;
-            height: 250px; /* Set a fixed height for consistency */
+            height: 300px; /* Fixed height for all images */
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Removed hover animations */
         }
 
-        /*.gallery-image {
-            width: 100%;
-            height: 350px;
-            background: #f8fafc;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7c8a;
-            font-weight: 400;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            margin-bottom: 1.5rem;
-        }*/
-
         .gallery-label {
-            margin: 10px 0 5px 0;
+            margin: 15px 0 5px 0;
             font-size: 1.1em;
             font-weight: bold;
+            color: #34495e;
         }
 
         .gallery-description {
             margin: 0;
             font-size: 0.9em;
-            color: #666;
+            color: #5a6c7a;
             line-height: 1.4;
         }
 
@@ -269,6 +241,10 @@
             
             .gallery-item {
                 margin-bottom: 20px;
+            }
+
+            .gallery-item img {
+                height: 250px; /* Slightly smaller on mobile */
             }
         }
 
@@ -338,11 +314,6 @@
                 padding: 6rem 1rem 3rem;
             }
 
-            .image-gallery {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
             .skills-grid {
                 grid-template-columns: 1fr;
             }
@@ -379,17 +350,17 @@
             <h2 class="gallery-title">Design Views & Renderings</h2>
             <div class="image-gallery">
                 <div class="gallery-item">
-                    <img src="../images/PokeFront.png" alt="Pokemon Ball Front View" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../images/PokeFront.png" alt="Pokemon Ball Front View">
                     <h3 class="gallery-label">Front View</h3>
                     <p class="gallery-description">Classic design with iconic red and white color scheme.</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="../images/PokeOpen.png" alt="Pokemon Ball Open View" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../images/PokeOpen.png" alt="Pokemon Ball Open View">
                     <h3 class="gallery-label">Isometric View</h3>
                     <p class="gallery-description">Three-dimensional perspective showcasing spherical geometry.</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="../images/PokeIso.png" alt="Pokemon Ball Isometric View" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    <img src="../images/PokeIso.png" alt="Pokemon Ball Isometric View">
                     <h3 class="gallery-label">Side Profile</h3>
                     <p class="gallery-description">Cross-sectional view revealing internal mechanism design.</p>
                 </div>
