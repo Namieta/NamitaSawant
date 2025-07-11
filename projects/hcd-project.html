@@ -41,25 +41,12 @@
             padding: 0 2rem;
         }
 
-/*         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #d63384;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-style: italic;
-            letter-spacing: 1px;
-            line-height: 1.2;
-            transform: scaleY(0.95);
-        } */
-
         .logo {
             font-family: 'Herr Von Muellerhoff', cursive;
             font-size: 4rem;
             font-weight: 400;
             color: #c04561;
             text-decoration: none;
-/*             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
-/*             font-style: normal; */
             letter-spacing: 2px;
         }
 
@@ -165,6 +152,12 @@
             margin-bottom: 3rem;
         }
 
+        /* Left aligned sections */
+        .section-left .section-header {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
@@ -187,13 +180,31 @@
             border-radius: 1px;
         }
 
+        .section-left .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #7c8b9f;
+            border-radius: 1px;
+        }
+
         .section-description {
             max-width: 600px;
             font-size: 1.1rem;
             color: #5a6c7a;
             line-height: 1.8;
             font-weight: 300;
+        }
+
+        .section-center .section-description {
             margin: 0 auto;
+        }
+
+        .section-left .section-description {
+            margin: 0;
         }
 
         /* Content Areas */
@@ -310,6 +321,27 @@
             margin: 0 auto 3rem auto;
         }
 
+        /* Solution section styles */
+        .solution-content {
+            margin-top: 2rem;
+        }
+
+        .solution-app-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #34495e;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .solution-description {
+            color: #5a6c7a;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 800px;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .project-title {
@@ -380,7 +412,7 @@
         </div>
 
         <!-- 2. Problem Statement -->
-        <section class="section section-center">
+        <section class="section section-left">
             <div class="section-header">
                 <h2 class="section-title">Problem Statement</h2>
                 <p class="section-description" style="max-width: 900px;">
@@ -390,15 +422,13 @@
         </section>
 
         <!-- 3. Solution -->
-        <section class="section section-center">
+        <section class="section section-left">
             <div class="section-header">
                 <h2 class="section-title">Solution</h2>
             </div>
-            <div class="content-area">
-                <div style="text-align: center; padding: 2rem 1rem; margin-bottom: 4rem;">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #34495e; margin-bottom: 2rem; font-weight: 400;">LitterMaster App</h3>
-                    <p style="color: #5a6c7a; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">A simple mobile app that helps New Yorkers quickly learn how to sort their waste—whether it belongs in trash, recycling, or compost—following NYC's specific rules. As the city's organics mandate begins in Fall 2024, LitterMaster supports residents in staying compliant and avoiding fines. More importantly, it encourages sustainable habits that contribute to NYC's goal of zero waste by 2030, turning everyday actions into a positive impact for the environment.</p>
-                </div>
+            <div class="solution-content">
+                <h3 class="solution-app-title">LitterMaster App</h3>
+                <p class="solution-description">A simple mobile app that helps New Yorkers quickly learn how to sort their waste—whether it belongs in trash, recycling, or compost—following NYC's specific rules. As the city's organics mandate begins in Fall 2024, LitterMaster supports residents in staying compliant and avoiding fines. More importantly, it encourages sustainable habits that contribute to NYC's goal of zero waste by 2030, turning everyday actions into a positive impact for the environment.</p>
             </div>
         </section>
 
