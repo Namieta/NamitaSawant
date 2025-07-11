@@ -41,25 +41,12 @@
             padding: 0 6rem;
         }
 
-/*         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #d63384;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-style: italic;
-            letter-spacing: 1px;
-            line-height: 1.2;
-            transform: scaleY(0.95);
-        } */
-
         .logo {
             font-family: 'Herr Von Muellerhoff', cursive;
             font-size: 4rem;
             font-weight: 400;
             color: #c04561;
             text-decoration: none;
-/*             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; */
-/*             font-style: normal; */
             letter-spacing: 2px;
         }
 
@@ -143,15 +130,19 @@
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 1.1rem;
             margin-bottom: 3rem;
             color: #34495e;
-            text-align: center;
             font-weight: 400;
             position: relative;
         }
         
-        .section-title::after {
+        /* Centered sections */
+        .section-center .section-title {
+            text-align: center;
+        }
+        
+        .section-center .section-title::after {
             content: '';
             position: absolute;
             bottom: -12px;
@@ -162,14 +153,38 @@
             background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
             border-radius: 2px;
         }
+
+        /* Left aligned sections */
+        .section-left .section-title {
+            text-align: left;
+        }
+        
+        .section-left .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+            border-radius: 2px;
+        }
         
         .section-description {
-            max-width: 1200px;
-            margin: 0 auto 4rem;
-            font-size: 1.1rem;
+            max-width: 1300px;
+            font-size: 0.9rem;
             color: #5a6c7a;
             line-height: 1.8;
+        }
+
+        .section-center .section-description {
+            margin: 0 auto 4rem;
             text-align: center;
+        }
+
+        .section-left .section-description {
+            margin: 0 0 4rem 0;
+            text-align: left;
         }
 
         /* Single image section styling */
@@ -278,8 +293,6 @@
         
         .philosophy-content {
             max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
         }
         
         .philosophy-content p {
@@ -410,25 +423,25 @@
         </div>
 
         <!-- Technical Innovation -->
-        <section class="section design-philosophy">
+        <section class="section section-left design-philosophy">
             <h2 class="section-title">Design Philosophy</h2>
             <div class="philosophy-content">
-                <p>Many automatic trash-sorting bins available today are built for commercial use—they’re bulky and not designed for home environments. So, I set out to design a compact, home-friendly solution.</p>
+                <p>Many automatic trash-sorting bins available today are built for commercial use—they're bulky and not designed for home environments. So, I set out to design a compact, home-friendly solution.</p>
                 <p>This project is a natural step forward in waste management. While the LitterMaster app focused on educating users about proper sorting, the Smart Home Trash Sorter takes it a step further by automating the process—removing the effort entirely.</p>
-                <p>By sorting waste right at the point of disposal, the goal was to reduce human error, improve recycling rates, and make sustainable living easier for everyone. The corded design ensures it’s always ready to go—because remembering to charge your trash can shouldn’t be part of your daily routine.</p>
+                <p>By sorting waste right at the point of disposal, the goal was to reduce human error, improve recycling rates, and make sustainable living easier for everyone. The corded design ensures it's always ready to go—because remembering to charge your trash can shouldn't be part of your daily routine.</p>
             </div>
         </section>
         
         <!-- Ideation Section -->
-        <section class="section">
+        <section class="section section-left">
             <h2 class="section-title">Initial Thesis</h2>
             <p class="section-description">
-                I wanted to make waste sorting at home simple, efficient, and accessible—so I designed a smart trash bin that automatically separates waste into three categories: recycle, non-recycle, and compost. Most sorting systems available are bulky and made for commercial use, so I focused on creating something compact and home-friendly. The bin has three separate drawers made from corrosion-resistant 6061 aluminum alloy for durability. Inside, the compartments are fitted with washable PLA liners, keeping things hygienic and easy to clean. I paid close attention to ergonomics to ensure the bin is comfortable to use and easy to install in a typical household. It’s designed to fit seamlessly into daily routines without taking up extra space. My goal was to remove the guesswork from sorting and make sustainable living feel effortless.
+                I wanted to make waste sorting at home simple, efficient, and accessible—so I designed a smart trash bin that automatically separates waste into three categories: recycle, non-recycle, and compost. Most sorting systems available are bulky and made for commercial use, so I focused on creating something compact and home-friendly. The bin has three separate drawers made from corrosion-resistant 6061 aluminum alloy for durability. Inside, the compartments are fitted with washable PLA liners, keeping things hygienic and easy to clean. I paid close attention to ergonomics to ensure the bin is comfortable to use and easy to install in a typical household. It's designed to fit seamlessly into daily routines without taking up extra space. My goal was to remove the guesswork from sorting and make sustainable living feel effortless.
             </p>
         </section>
 
         <!-- Sketching Process -->
-        <section class="section">
+        <section class="section section-left">
             <h2 class="section-title">Design Process</h2>
             <p class="section-description">
                 I began with quick hand sketches to explore form, function, and user interaction.
@@ -444,8 +457,8 @@
             <p class="image-caption">Initial concept sketche</p>
         </section>
 
-        <!-- Sketching Process -->
-        <section class="section">
+        <!-- How Sorting Works -->
+        <section class="section section-left">
             <h2 class="section-title">How Sorting Works</h2>
             <p class="section-description">
                 Users simply toss waste into a single top opening, just like a regular bin. 
@@ -464,7 +477,7 @@
         
         
         <!-- 3D Prototypes -->
-        <section class="section">
+        <section class="section section-left">
             <h2 class="section-title">Design</h2>
             <p class="section-description">
                 To bring the concept to life, I developed three iterative prototypes, each refining different aspects of the design. The first focused on validating the feasibility of embedded sorting and internal waste routing. The second prototype addressed form factor—shrinking the footprint while maintaining capacity and mechanical stability. The third iteration prioritized user accessibility, refining drawer mechanics, handle height, and component layout for real-world usability. Using SolidWorks, I modeled every detail, from internal pathways to the outer enclosure, and rendered visuals to communicate design intent and material use. Each version brought the product closer to being a truly seamless, smart addition to the modern home.
@@ -498,7 +511,7 @@
         </section>
         
         <!-- Key Features -->
-        <section class="section features-section">
+        <section class="section section-center features-section">
             <h2 class="section-title">Smart Features</h2>
             <div class="features-grid">
                 <div class="feature-item">
