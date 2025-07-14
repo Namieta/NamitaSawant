@@ -122,6 +122,70 @@
             text-align: center;
         }
 
+        /* Video Section */
+        .video-section {
+            margin: 6rem 0;
+        }
+
+        .video-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .video-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #3b82c4;
+            border-radius: 2px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-description {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .video-description h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #34495e;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .video-description p {
+            color: #5a6c7a;
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         /* Skills Showcase */
         .skills-section {
             margin: 4rem 0;
@@ -246,6 +310,14 @@
             .gallery-item img {
                 height: 250px; /* Slightly smaller on mobile */
             }
+
+            .video-container {
+                margin: 0 1rem;
+            }
+
+            .video-description {
+                padding: 1.5rem;
+            }
         }
 
         /* Technical Details */
@@ -306,7 +378,7 @@
                 font-size: 2.5rem;
             }
 
-            .gallery-title {
+            .gallery-title, .video-title {
                 font-size: 2.2rem;
             }
 
@@ -344,6 +416,21 @@
                 <p>A personal project exploring advanced SolidWorks capabilities through the creation of an iconic Pokemon Ball. This model demonstrates precision geometric modeling, professional rendering techniques, and attention to manufacturing details.</p>
             </div>
         </div>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <h2 class="video-title">Solidowrks Model</h2>
+            <div class="video-container">
+                <video controls poster="../images/PokeFront.png">
+                    <source src="../images/pokeball.mp4" type="video/mp4">
+                    <p>Your browser does not support the video tag. Please <a href="../videos/pokemon-ball-demo.mp4">download the video</a> to view it.</p>
+                </video>
+<!--                 <div class="video-description">
+                    <h3>Interactive 3D Demonstration</h3>
+                    <p>Watch the Pokemon Ball model rotate and showcase its detailed geometry, realistic materials, and professional rendering quality. This video demonstrates the precision and craftsmanship that went into creating this iconic design.</p>
+                </div> -->
+            </div>
+        </section>
 
         <!-- Image Gallery -->
         <section class="gallery-section">
