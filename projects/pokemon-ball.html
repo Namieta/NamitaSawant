@@ -326,6 +326,38 @@
             line-height: 1.6;
         }
 
+        /* Model Showcase Styles */
+        .model-showcase {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .featured-model:hover .model-overlay {
+            background: rgba(0,0,0,0.2);
+        }
+
+        .featured-model:hover .play-button {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .featured-model:hover img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Hover effects for interactive elements */
+        .model-info {
+            transition: all 0.3s ease;
+        }
+
+        .featured-model:hover .model-info {
+            background: rgba(0,0,0,0.9);
+        }
+
         /* Image Viewer Styles */
         .image-viewer-container {
             position: relative;
@@ -479,30 +511,81 @@
             <p class="viewer-subtitle">Experience the Pokemon Ball in full 3D - rotate, zoom, and interact!</p>
             
             <div class="viewer-container">
-                <!-- GrabCAD 3D Viewer - Your Pokemon Ball Model -->
-                <iframe 
-                    src="https://grabcad.com/library/pokeball-143/embed?hide_info=false&hide_description=false" 
-                    id="threejs-container"
-                    frameborder="0" 
-                    allowfullscreen
-                    style="width: 100%; height: 500px; border-radius: 15px; background: #1a1a2e;">
-                </iframe>
+                <!-- Interactive Model Showcase -->
+                <div id="threejs-container" style="position: relative; overflow: hidden;">
+                    <div class="model-showcase">
+                        <!-- Featured Image with Click-to-View -->
+                        <div class="featured-model" style="position: relative; width: 100%; height: 100%; 
+                                                           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                                                           border-radius: 15px; overflow: hidden; cursor: pointer;"
+                             onclick="openGrabCAD()">
+                            <img src="../images/PokeFront.png" 
+                                 alt="Pokemon Ball 3D Model - Click to view interactive version"
+                                 style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9; 
+                                        transition: all 0.3s ease; mix-blend-mode: overlay;">
+                            
+                            <!-- Overlay with Call-to-Action -->
+                            <div class="model-overlay" style="position: absolute; top: 0; left: 0; 
+                                                              width: 100%; height: 100%; 
+                                                              background: rgba(0,0,0,0.4); 
+                                                              display: flex; flex-direction: column; 
+                                                              align-items: center; justify-content: center; 
+                                                              color: white; text-align: center; 
+                                                              backdrop-filter: blur(2px);">
+                                <div class="play-button" style="width: 80px; height: 80px; 
+                                                               border-radius: 50%; 
+                                                               background: rgba(255,255,255,0.2); 
+                                                               border: 3px solid white; 
+                                                               display: flex; align-items: center; 
+                                                               justify-content: center; 
+                                                               margin-bottom: 1rem; 
+                                                               transition: all 0.3s ease;
+                                                               backdrop-filter: blur(10px);">
+                                    <span style="font-size: 2rem;">🎮</span>
+                                </div>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 600;">
+                                    Interactive 3D Model
+                                </h3>
+                                <p style="font-size: 1rem; opacity: 0.9; margin-bottom: 1rem;">
+                                    Click to view full SolidWorks assembly on GrabCAD
+                                </p>
+                                <div class="cta-badge" style="background: rgba(59, 130, 196, 0.8); 
+                                                             padding: 0.5rem 1rem; border-radius: 20px; 
+                                                             font-size: 0.9rem; font-weight: 500;">
+                                    🔄 Rotate • 🔍 Zoom • 📥 Download .sldasm
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Model Info Bar -->
+                        <div class="model-info" style="position: absolute; bottom: 15px; left: 15px; right: 15px; 
+                                                      background: rgba(0,0,0,0.8); color: white; 
+                                                      padding: 1rem; border-radius: 10px; 
+                                                      backdrop-filter: blur(10px);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                                <div>
+                                    <div style="font-weight: 600; margin-bottom: 0.25rem;">Pokemon Ball Assembly</div>
+                                    <div style="font-size: 0.85rem; opacity: 0.8;">SolidWorks .sldasm • 2 Components • Hinge Mechanism</div>
+                                </div>
+                                <div class="stats" style="display: flex; gap: 1rem; font-size: 0.8rem;">
+                                    <span>👁️ Interactive</span>
+                                    <span>📥 Downloadable</span>
+                                    <span>🔄 3D Viewer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="viewer-controls">
-                    <p style="color: rgba(255,255,255,0.9); text-align: center; margin: 1rem 0;">
-                        <strong>Interactive 3D Model:</strong> Left click + drag to rotate • Right click + drag to pan • Scroll to zoom<br>
-                        <em>Original SolidWorks assembly (.sldasm) hosted on GrabCAD</em>
-                    </p>
-                    <div style="text-align: center; margin-top: 1rem;">
-                        <a href="https://grabcad.com/library/pokeball-143" target="_blank" 
-                           style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; 
-                                  border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem 1rem; 
-                                  border-radius: 20px; transition: all 0.3s ease; display: inline-block;"
-                           onmouseover="this.style.background='rgba(255,255,255,0.1)'"
-                           onmouseout="this.style.background='transparent'">
-                            🔗 View Full Model & Download on GrabCAD
-                        </a>
-                    </div>
+                    <button class="control-btn" onclick="openGrabCAD()">🎮 View Interactive 3D Model</button>
+                    <button class="control-btn" onclick="switchToGallery()">🖼️ View Image Gallery</button>
+                    <button class="control-btn" onclick="downloadModel()">📥 Download SolidWorks Files</button>
+                </div>
+                
+                <div class="interaction-hint">
+                    <strong>Professional CAD Hosting:</strong> Full SolidWorks assembly available on GrabCAD platform<br>
+                    <em>Interactive 3D viewer • Component breakdown • Engineering drawings • Download source files</em>
                 </div>
                 
                 <div class="interaction-hint">
@@ -554,6 +637,42 @@
     </div>
 
     <script>
+        // Interactive Model Functions
+        function openGrabCAD() {
+            // Open your GrabCAD model in new tab
+            window.open('https://grabcad.com/library/pokeball-143', '_blank');
+        }
+
+        function switchToGallery() {
+            // Scroll to image gallery section
+            document.querySelector('.gallery-section').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function downloadModel() {
+            // Direct link to download (users need GrabCAD account)
+            window.open('https://grabcad.com/library/pokeball-143', '_blank');
+        }
+
+        // Enhanced interaction effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const featuredModel = document.querySelector('.featured-model');
+            
+            // Add click animation
+            featuredModel.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            featuredModel.addEventListener('mouseup', function() {
+                this.style.transform = 'scale(1)';
+            });
+            
+            featuredModel.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
         // Scroll progress indicator
         window.addEventListener('scroll', function() {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
