@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Ball 3D Model | Namita Sawant</title>
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Herr+Von+Muellerhoff&family=Lavishly+Yours&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <style>
         * {
             margin: 0;
@@ -124,110 +122,57 @@
             text-align: center;
         }
 
-        /* Interactive 3D Viewer */
-        .viewer-section {
-            margin: 6rem 0;
-            text-align: center;
+        /* Skills Showcase */
+        .skills-section {
+            margin: 4rem 0;
         }
 
-        .viewer-title {
+        .skills-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2.2rem;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             color: #34495e;
             margin-bottom: 1rem;
             font-weight: 400;
-            position: relative;
         }
 
-        .viewer-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #3b82c4;
-            border-radius: 2px;
+        .skill-card p {
+            color: #5a6c7a;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        .viewer-subtitle {
-            font-size: 1.1rem;
-            color: #7c8b9f;
-            margin-bottom: 2rem;
-        }
-
-        .viewer-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .viewer-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        #threejs-container {
-            width: 100%;
-            height: 500px;
-            border-radius: 15px;
-            background: radial-gradient(circle, #1a1a2e 0%, #16213e 100%);
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .viewer-controls {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .control-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            font-size: 0.9rem;
-        }
-
-        .control-btn:hover {
-            background: rgba(255,255,255,0.3);
-            border-color: rgba(255,255,255,0.5);
-            transform: translateY(-2px);
-        }
-
-        .control-btn.active {
-            background: rgba(255,255,255,0.4);
-            border-color: rgba(255,255,255,0.6);
-        }
-
-        .interaction-hint {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        /* Gallery Section */
+        /* Image Gallery */
         .gallery-section {
             margin: 6rem 0;
         }
@@ -267,10 +212,11 @@
 
         .gallery-item img {
             width: 100%;
-            height: 300px;
+            height: 300px; /* Fixed height for all images */
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Removed hover animations */
         }
 
         .gallery-label {
@@ -285,6 +231,21 @@
             font-size: 0.9em;
             color: #5a6c7a;
             line-height: 1.4;
+        }
+
+        /* Responsive design - stack on mobile */
+        @media (max-width: 768px) {
+            .image-gallery {
+                flex-direction: column;
+            }
+            
+            .gallery-item {
+                margin-bottom: 20px;
+            }
+
+            .gallery-item img {
+                height: 250px; /* Slightly smaller on mobile */
+            }
         }
 
         /* Technical Details */
@@ -324,84 +285,6 @@
             line-height: 1.6;
         }
 
-        /* Model Showcase Styles */
-        .model-showcase {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .featured-model:hover .model-overlay {
-            background: rgba(0,0,0,0.2);
-        }
-
-        .featured-model:hover .play-button {
-            transform: scale(1.1);
-            background: rgba(255,255,255,0.3);
-        }
-
-        .featured-model:hover img {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        /* Hover effects for interactive elements */
-        .model-info {
-            transition: all 0.3s ease;
-        }
-
-        .featured-model:hover .model-info {
-            background: rgba(0,0,0,0.9);
-        }
-
-        /* Image Viewer Styles */
-        .image-viewer-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, #1a1a2e 0%, #16213e 100%);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        #main-model-image {
-            transition: transform 0.3s ease;
-        }
-
-        #main-model-image:hover {
-            transform: scale(1.02);
-        }
-
-        .view-indicators {
-            z-index: 10;
-        }
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .indicator.active {
-            background: #3b82c4;
-            transform: scale(1.3);
-        }
-
-        .indicator:hover {
-            background: rgba(255,255,255,0.8);
-            transform: scale(1.2);
-        }
-
-        .view-label {
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
         /* Scroll indicator */
         .scroll-indicator {
             position: fixed;
@@ -423,7 +306,7 @@
                 font-size: 2.5rem;
             }
 
-            .gallery-title, .viewer-title {
+            .gallery-title {
                 font-size: 2.2rem;
             }
 
@@ -431,52 +314,11 @@
                 padding: 6rem 1rem 3rem;
             }
 
-            .image-gallery {
-                flex-direction: column;
-            }
-            
-            .gallery-item {
-                margin-bottom: 20px;
-            }
-
-            .gallery-item img {
-                height: 250px;
-            }
-
-            #threejs-container {
-                height: 400px;
-            }
-
-            .viewer-controls {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .control-btn {
-                width: 200px;
-                text-align: center;
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
-
-        /* Loading animation */
-/*         .loading-spinner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-top: 3px solid #fff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-    </style> */
+    </style>
 </head>
 <body>
     <!-- Scroll Progress Indicator -->
@@ -498,41 +340,11 @@
             <h1 class="project-title">Pokemon Ball 3D Model</h1>
             <p class="project-subtitle">SolidWorks • 3D Modeling • Rendering</p>
             <p class="project-subtitle1">Fun with CAD</p>
-<!--             <div class="project-intro">
-<!--                 <p>A personal project exploring advanced SolidWorks capabilities through the creation of an iconic Pokemon Ball. This model demonstrates precision geometric modeling, professional rendering techniques, and attention to manufacturing details - now with interactive 3D visualization!</p> -->
-            </div> -->
+            <div class="project-intro">
+                <p>A personal project exploring advanced SolidWorks capabilities through the creation of an iconic Pokemon Ball. This model demonstrates precision geometric modeling, professional rendering techniques, and attention to manufacturing details.</p>
+            </div>
         </div>
 
-<!--         <!-- Interactive 3D Viewer -->
-<!--         <section class="viewer-section">
-            <h2 class="viewer-title">Interactive 3D Model</h2>
-            <p class="viewer-subtitle">Experience the Pokemon Ball in full 3D - rotate, zoom, and interact!</p>
-            
-            <div class="viewer-container">
-                <!-- Interactive 3D Viewer with Your GLB Model -->
-                <div id="threejs-container">
-                    <div class="loading-spinner"></div>
-                </div>
-                
-                <div class="viewer-controls">
-                    <button class="control-btn active" onclick="setViewMode('rotate')">🔄 Rotate</button>
-                    <button class="control-btn" onclick="setViewMode('explode')">💥 Explode View</button>
-                    <button class="control-btn" onclick="setViewMode('open')">🔓 Open/Close</button>
-                    <button class="control-btn" onclick="resetView()">🏠 Reset View</button>
-                    <button class="control-btn" onclick="openGrabCAD()">📥 Download Original</button>
-                </div>
-                
-                <div class="interaction-hint">
-                    <strong>Mouse Controls:</strong> Left click + drag to rotate • Right click + drag to pan • Scroll to zoom<br>
-                    <em>Your original SolidWorks model loaded in real-time 3D</em>
-                </div>
-                
-                <div class="interaction-hint">
-                    <strong>Mouse Controls:</strong> Left click + drag to rotate • Right click + drag to pan • Scroll to zoom
-                </div>
-            </div>
-        </section> -->
- -->
         <!-- Image Gallery -->
         <section class="gallery-section">
             <h2 class="gallery-title">Design Views & Renderings</h2>
@@ -540,17 +352,17 @@
                 <div class="gallery-item">
                     <img src="../images/PokeFront.png" alt="Pokemon Ball Front View">
                     <h3 class="gallery-label">Front View</h3>
-<!--                     <p class="gallery-description">Classic design with iconic red and white color scheme.</p> -->
+                    <p class="gallery-description">Classic design with iconic red and white color scheme.</p>
                 </div>
                 <div class="gallery-item">
                     <img src="../images/PokeOpen.png" alt="Pokemon Ball Open View">
                     <h3 class="gallery-label">Isometric View</h3>
-<!--                     <p class="gallery-description">Three-dimensional perspective showcasing spherical geometry.</p> -->
+                    <p class="gallery-description">Three-dimensional perspective showcasing spherical geometry.</p>
                 </div>
                 <div class="gallery-item">
                     <img src="../images/PokeIso.png" alt="Pokemon Ball Isometric View">
                     <h3 class="gallery-label">Side Profile</h3>
-<!--                     <p class="gallery-description">Cross-sectional view revealing internal mechanism design.</p> -->
+                    <p class="gallery-description">Cross-sectional view revealing internal mechanism design.</p>
                 </div>
             </div>
         </section>
@@ -560,426 +372,22 @@
             <h2 class="tech-title">Project Details</h2>
             <div class="tech-content">
                 <div class="tech-item">
-                    <h4>3D Modeling Features</h4>
+                    <h4>Modeling Features</h4>
                     <p>Lofted surfaces, revolve cuts, and precise dimensional constraints for accurate geometry.</p>
                 </div>
                 <div class="tech-item">
                     <h4>Assembly Design</h4>
-                    <p>Two-hemisphere construction with functional hinge mechanism, internal components, and opening/closing functionality.</p>
+                    <p>Two-hemisphere construction with functional hinge mechanism and internal components.</p>
                 </div>
-<!--                 <div class="tech-item">
-                    <h4>Interactive Experience</h4>
-                    <p>Real-time 3D visualization with exploded views, smooth animations, and intuitive mouse controls for enhanced user engagement.</p>
-                </div> -->
+                <div class="tech-item">
+                    <h4>Rendering Quality</h4>
+                    <p>High-resolution output with realistic materials and professional studio lighting.</p>
+                </div>
             </div>
         </section>
     </div>
 
-<!--     <script>
-        // Three.js Scene Setup for GLB Model
-        let scene, camera, renderer, pokeball, topHalf, bottomHalf, button;
-        let isAnimating = false;
-        let currentMode = 'rotate';
-        let isOpen = false;
-        let mouseX = 0, mouseY = 0;
-        let isMouseDown = false;
-        let autoRotate = true;
-
-        function initThreeJS() {
-            const container = document.getElementById('threejs-container');
-            
-            // Scene setup
-            scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x1a1a2e);
-            
-            // Camera setup
-            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.set(0, 0, 5);
-            
-            // Renderer setup
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.shadowMap.enabled = true;
-            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-            renderer.outputEncoding = THREE.sRGBEncoding;
-            container.appendChild(renderer.domElement);
-            
-            // Lighting setup
-            const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(10, 10, 5);
-            directionalLight.castShadow = true;
-            directionalLight.shadow.mapSize.width = 2048;
-            directionalLight.shadow.mapSize.height = 2048;
-            scene.add(directionalLight);
-            
-            const pointLight = new THREE.PointLight(0xffffff, 0.3, 100);
-            pointLight.position.set(-10, -10, -5);
-            scene.add(pointLight);
-            
-            // Load your GLB model
-            loadGLBModel();
-            
-            // Mouse controls
-            setupMouseControls();
-            
-            // Start render loop
-            animate();
-            
-            // Handle window resize
-            window.addEventListener('resize', onWindowResize);
-        }
-
-        function loadGLBModel() {
-            // Update this path to point to your GLB file
-            const modelPath = './models/pokeball.glb'; // Change this to your actual GLB file path
-            
-            const loader = new THREE.GLTFLoader();
-            
-            loader.load(
-                modelPath,
-                function (gltf) {
-                    console.log('GLB model loaded successfully!');
-                    
-                    // Remove loading spinner
-                    const spinner = document.querySelector('.loading-spinner');
-                    if (spinner) spinner.remove();
-                    
-                    pokeball = gltf.scene;
-                    
-                    // Scale and position your model as needed
-                    pokeball.scale.set(1, 1, 1); // Adjust scale if needed
-                    pokeball.position.set(0, 0, 0);
-                    
-                    // Enable shadows for all meshes in your model
-                    pokeball.traverse(function (child) {
-                        if (child.isMesh) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
-                            
-                            // Enhance materials if needed
-                            if (child.material) {
-                                child.material.needsUpdate = true;
-                            }
-                        }
-                    });
-                    
-                    // Try to identify components from your model
-                    findModelComponents();
-                    
-                    scene.add(pokeball);
-                    
-                    // Center the model
-                    const box = new THREE.Box3().setFromObject(pokeball);
-                    const center = box.getCenter(new THREE.Vector3());
-                    pokeball.position.x = pokeball.position.x - center.x;
-                    pokeball.position.y = pokeball.position.y - center.y;
-                    pokeball.position.z = pokeball.position.z - center.z;
-                    
-                    console.log('Model centered and ready!');
-                },
-                function (progress) {
-                    console.log('Loading progress:', (progress.loaded / progress.total * 100) + '%');
-                },
-                function (error) {
-                    console.log('Error loading GLB model:', error);
-                    console.log('Tried to load from:', modelPath);
-                    
-                    // Remove loading spinner and show error message
-                    const spinner = document.querySelector('.loading-spinner');
-                    if (spinner) {
-                        spinner.innerHTML = '<div style="color: white; text-align: center; padding: 2rem; font-family: Arial;">⚠️ GLB Model Not Found<br><small>Expected: ' + modelPath + '<br>Using fallback model instead</small></div>';
-                    }
-                    
-                    // Wait 3 seconds then show fallback
-                    setTimeout(() => {
-                        createFallbackModel();
-                    }, 3000);
-                }
-            );
-        }
-
-        function findModelComponents() {
-            // Try to find your model components by name
-            // Adjust these names to match your SolidWorks component names
-            topHalf = pokeball.getObjectByName('Top_Half') || 
-                     pokeball.getObjectByName('TopHalf') ||
-                     pokeball.getObjectByName('Part1') ||
-                     pokeball.children[0]; // Fallback to first child
-            
-            bottomHalf = pokeball.getObjectByName('Bottom_Half') || 
-                        pokeball.getObjectByName('BottomHalf') ||
-                        pokeball.getObjectByName('Part2') ||
-                        pokeball.children[1]; // Fallback to second child
-            
-            button = pokeball.getObjectByName('Button') || 
-                    pokeball.getObjectByName('Center_Button') ||
-                    pokeball.children[2]; // Fallback
-            
-            // If components aren't found, use entire model for animations
-            if (!topHalf || !bottomHalf) {
-                console.log('Component names not found, using entire model');
-                topHalf = pokeball;
-                bottomHalf = new THREE.Object3D(); // Empty object for animations
-            }
-            
-            console.log('Found components:', {
-                topHalf: topHalf?.name || 'unnamed',
-                bottomHalf: bottomHalf?.name || 'unnamed',
-                button: button?.name || 'unnamed'
-            });
-        }
-
-        function createFallbackModel() {
-            // Fallback procedural model if GLB fails to load
-            pokeball = new THREE.Group();
-            
-            // Top half (red)
-            const topGeometry = new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2);
-            const topMaterial = new THREE.MeshLambertMaterial({ color: 0xcc0000 });
-            topHalf = new THREE.Mesh(topGeometry, topMaterial);
-            topHalf.castShadow = true;
-            topHalf.receiveShadow = true;
-            
-            // Bottom half (white)
-            const bottomGeometry = new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
-            const bottomMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
-            bottomHalf = new THREE.Mesh(bottomGeometry, bottomMaterial);
-            bottomHalf.castShadow = true;
-            bottomHalf.receiveShadow = true;
-            
-            // Black band
-            const bandGeometry = new THREE.CylinderGeometry(1.02, 1.02, 0.1, 32);
-            const bandMaterial = new THREE.MeshLambertMaterial({ color: 0x000000 });
-            const band = new THREE.Mesh(bandGeometry, bandMaterial);
-            band.castShadow = true;
-            
-            // Center button
-            const buttonGeometry = new THREE.CircleGeometry(0.15, 16);
-            const buttonMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
-            button = new THREE.Mesh(buttonGeometry, buttonMaterial);
-            button.position.set(0, 0, 1.03);
-            button.castShadow = true;
-            
-            pokeball.add(topHalf);
-            pokeball.add(bottomHalf);
-            pokeball.add(band);
-            pokeball.add(button);
-            
-            scene.add(pokeball);
-            
-            // Remove loading spinner
-            const spinner = document.querySelector('.loading-spinner');
-            if (spinner) spinner.remove();
-        }
-
-        function setupMouseControls() {
-            const canvas = renderer.domElement;
-            
-            canvas.addEventListener('mousedown', onMouseDown);
-            canvas.addEventListener('mousemove', onMouseMove);
-            canvas.addEventListener('mouseup', onMouseUp);
-            canvas.addEventListener('wheel', onMouseWheel);
-            
-            // Touch controls for mobile
-            canvas.addEventListener('touchstart', onTouchStart);
-            canvas.addEventListener('touchmove', onTouchMove);
-            canvas.addEventListener('touchend', onTouchEnd);
-        }
-
-        function onMouseDown(event) {
-            isMouseDown = true;
-            autoRotate = false;
-            mouseX = event.clientX;
-            mouseY = event.clientY;
-        }
-
-        function onMouseMove(event) {
-            if (!isMouseDown) return;
-            
-            const deltaX = event.clientX - mouseX;
-            const deltaY = event.clientY - mouseY;
-            
-            pokeball.rotation.y += deltaX * 0.01;
-            pokeball.rotation.x += deltaY * 0.01;
-            
-            mouseX = event.clientX;
-            mouseY = event.clientY;
-        }
-
-        function onMouseUp() {
-            isMouseDown = false;
-        }
-
-        function onMouseWheel(event) {
-            camera.position.z += event.deltaY * 0.01;
-            camera.position.z = Math.max(2, Math.min(10, camera.position.z));
-        }
-
-        function onTouchStart(event) {
-            if (event.touches.length === 1) {
-                const touch = event.touches[0];
-                onMouseDown({clientX: touch.clientX, clientY: touch.clientY});
-            }
-        }
-
-        function onTouchMove(event) {
-            if (event.touches.length === 1) {
-                const touch = event.touches[0];
-                onMouseMove({clientX: touch.clientX, clientY: touch.clientY});
-            }
-        }
-
-        function onTouchEnd() {
-            onMouseUp();
-        }
-
-        function setViewMode(mode) {
-            if (isAnimating) return;
-            
-            // Update active button
-            document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            currentMode = mode;
-            
-            switch(mode) {
-                case 'rotate':
-                    autoRotate = true;
-                    resetPositions();
-                    break;
-                case 'explode':
-                    explodeView();
-                    break;
-                case 'open':
-                    toggleOpen();
-                    break;
-            }
-        }
-
-        function resetPositions() {
-            if (isAnimating || !topHalf || !bottomHalf) return;
-            isAnimating = true;
-            
-            const duration = 1000;
-            const startTime = Date.now();
-            
-            const startTopY = topHalf.position.y;
-            const startBottomY = bottomHalf.position.y;
-            const startTopRotation = topHalf.rotation.z;
-            
-            function animateReset() {
-                const elapsed = Date.now() - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeProgress = 1 - Math.pow(1 - progress, 3);
-                
-                topHalf.position.y = startTopY + (0 - startTopY) * easeProgress;
-                bottomHalf.position.y = startBottomY + (0 - startBottomY) * easeProgress;
-                topHalf.rotation.z = startTopRotation + (0 - startTopRotation) * easeProgress;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animateReset);
-                } else {
-                    isAnimating = false;
-                    isOpen = false;
-                }
-            }
-            
-            animateReset();
-        }
-
-        function explodeView() {
-            if (isAnimating || !topHalf || !bottomHalf) return;
-            isAnimating = true;
-            autoRotate = false;
-            
-            const duration = 1500;
-            const startTime = Date.now();
-            
-            function animateExplode() {
-                const elapsed = Date.now() - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeProgress = 1 - Math.pow(1 - progress, 3);
-                
-                topHalf.position.y = easeProgress * 1.5;
-                bottomHalf.position.y = -easeProgress * 1.5;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animateExplode);
-                } else {
-                    isAnimating = false;
-                }
-            }
-            
-            animateExplode();
-        }
-
-        function toggleOpen() {
-            if (isAnimating || !topHalf) return;
-            isAnimating = true;
-            autoRotate = false;
-            
-            const duration = 1200;
-            const startTime = Date.now();
-            
-            const targetRotation = isOpen ? 0 : Math.PI;
-            const startRotation = topHalf.rotation.z;
-            
-            function animateOpen() {
-                const elapsed = Date.now() - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeProgress = 1 - Math.pow(1 - progress, 3);
-                
-                topHalf.rotation.z = startRotation + (targetRotation - startRotation) * easeProgress;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animateOpen);
-                } else {
-                    isAnimating = false;
-                    isOpen = !isOpen;
-                }
-            }
-            
-            animateOpen();
-        }
-
-        function resetView() {
-            camera.position.set(0, 0, 5);
-            pokeball.rotation.set(0, 0, 0);
-            resetPositions();
-            autoRotate = true;
-        }
-
-        function openGrabCAD() {
-            window.open('https://grabcad.com/library/pokeball-143', '_blank');
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            
-            // Auto-rotate when in rotate mode
-            if (autoRotate && currentMode === 'rotate' && !isMouseDown) {
-                pokeball.rotation.y += 0.005;
-                pokeball.rotation.x += 0.002;
-            }
-            
-            renderer.render(scene, camera);
-        }
-
-        function onWindowResize() {
-            const container = document.getElementById('threejs-container');
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(initThreeJS, 100);
-        });
-
+    <script>
         // Scroll progress indicator
         window.addEventListener('scroll', function() {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -999,6 +407,20 @@
             }, 300);
         }
 
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
         // Page load animation
         document.addEventListener('DOMContentLoaded', function() {
             document.body.style.opacity = '0';
@@ -1007,6 +429,6 @@
                 document.body.style.opacity = '1';
             }, 100);
         });
-    </script> -->
+    </script>
 </body>
 </html>
