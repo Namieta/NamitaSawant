@@ -254,9 +254,10 @@
 
         .gallery-item {
             display: flex;
-            align-items: flex-start;
-            gap: 3rem;
+            flex-direction: column;
             transition: all 0.3s ease;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .gallery-item:hover {
@@ -264,20 +265,17 @@
         }
 
         .gallery-image {
-            flex: 0 0 400px;
-            height: 280px;
+            width: 100%;
+            height: 400px;
             background: #f8fafc;
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
+            margin-bottom: 2rem;
         }
 
         .gallery-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 120px;
+            text-align: center;
         }
 
         .gallery-label {
@@ -293,7 +291,23 @@
             color: #5a6c7a;
             font-size: 1.1rem;
             line-height: 1.7;
-            max-width: 600px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Placeholder Images for Workflow */
+        .placeholder-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
         }
 
         /* Technical Highlights - Updated for side-by-side layout */
@@ -393,13 +407,14 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 1.5rem;
+                max-width: 100%;
             }
 
             .gallery-image {
                 flex: none;
                 width: 100%;
-                max-width: 400px;
-                margin: 0 auto;
+                height: 300px;
+                margin: 0 auto 1.5rem;
             }
 
             .gallery-content {
@@ -436,21 +451,21 @@
         <!-- Project Header -->
         <div class="project-header">
             <h1 class="project-title">SAE Baja India Project</h1>
-            <p class="project-subtitle">Chassis Design Lead • FEA Specialist • Marketing Coordinator</p>
+            <p class="project-subtitle">Chassis Design & CAE Lead • Marketing Lead</p>
             
             <div class="achievements">
                 <div class="achievement-badge">
-                    <span class="rank">AIR 19</span>
+                    <span class="rank">All India Rank 19/350+</span>
                     <span class="description">Presentation Round</span>
                 </div>
                 <div class="achievement-badge">
-                    <span class="rank">AIR 12</span>
+                    <span class="rank">All India Rank 12/250+</span>
                     <span class="description">Endurance Round</span>
                 </div>
             </div>
 
             <div class="project-intro">
-                <p>Led chassis design and finite element analysis for a competitive off-road vehicle while coordinating marketing efforts that secured crucial project funding. My dual technical and business role contributed to achieving top-20 national rankings in India's premier collegiate engineering competition.</p>
+<!--                 <p> My dual technical and business role contributed to achieving top-20 national rankings in India's premier collegiate engineering competition in first year of participation.</p> -->
             </div>
         </div>
 
@@ -458,7 +473,7 @@
         <section class="section section-left">
             <h2 class="section-title">My Role & Responsibilities</h2>
             <p class="section-description">
-                As Chassis & FEA Head and Marketing Lead, I bridged technical excellence with strategic business development, ensuring both engineering integrity and financial sustainability for our team.
+                As Chassis & CAE Head and Marketing Lead, I bridged technical excellence with strategic business development, ensuring both engineering integrity and financial sustainability for the team RCOE RETRO.
             </p>
             
             <div class="contribution-content">
@@ -469,50 +484,42 @@
             </div>
         </section>
 
-        <!-- Technical Work -->
-        <section class="section section-left">
-            <h2 class="section-title">Technical Approach</h2>
-            <p class="section-description">
-                My technical work focused on creating a robust, lightweight chassis that met strict safety requirements while optimizing for performance and manufacturability.
-            </p>
-            
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <h4>Chassis Design Process</h4>
-                    <p>Started with ergonomic analysis for driver accommodation, then developed space frame geometry using CAD modeling. Ensured compliance with SAE Baja India rulebook requirements including impact zones, roll cage specifications, and material constraints.</p>
-                </div>
-
-                <div class="tech-item">
-                    <h4>FEA Methodology</h4>
-                    <p>Performed static and dynamic analysis using industry-standard software. Evaluated multiple load cases including frontal impact, side impact, torsional loads, and operational stresses. Validated safety factors and identified optimization opportunities.</p>
-                </div>
-
-                <div class="tech-item">
-                    <h4>Design Optimization</h4>
-                    <p>Iteratively refined tube sizing, joint design, and overall geometry based on FEA results. Balanced weight reduction with safety requirements, achieving significant mass savings without compromising structural performance.</p>
-                </div>
-
-                <div class="tech-item">
-                    <h4>Business Development</h4>
-                    <p>Developed compelling sponsor proposals highlighting technical achievements and team capabilities. Successfully negotiated partnerships that provided materials, funding, and technical support critical for project completion.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project Documentation -->
+      <!-- Workflow -->
         <section class="section section-center">
-            <h2 class="section-title">Project Documentation</h2>
+            <h2 class="section-title">Workflow</h2>
             <p class="section-description">
-                Visual documentation of my design work, analysis results, and team collaboration throughout the project development cycle.
+<!--                 Visual documentation of my design work, analysis results, and team collaboration throughout the project development cycle. -->
             </p>
             <div class="image-gallery">
+                <!-- First 2 placeholder images -->
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <div class="placeholder-image">Initial Concept Development</div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-label">Requirements Analysis & Planning</h3>
+                        <p class="gallery-description">The project began with comprehensive analysis of SAE Baja India rulebook requirements, driver anthropometric data, and performance objectives. This phase established design constraints, safety requirements, and project timeline for the chassis development process.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <div class="placeholder-image">Preliminary Design</div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-label">Conceptual Framework Development</h3>
+                        <p class="gallery-description">Initial conceptual designs were developed to explore different chassis configurations. Multiple design alternatives were evaluated considering factors like manufacturability, weight distribution, and integration with other vehicle systems. Using SolidWorks, I modeled space frame chassis optimized for ergonomics, safety, and packaging. The model strictly adhered to the SAE Baja India rulebook, impact zones, and material constraints. To validate digital ergonomics, we built a full-scale PVC prototype of the chassis. This hands-on test ensured comfortable driver ingress/egress and confirmed compliance with clearance and control layout guidelines — an essential step before locking the CAD geometry.</p>
+                    </div>
+                </div>
+
+                <!-- Your specific content -->
                 <div class="gallery-item">
                     <div class="gallery-image">
                         <img src="../images/Chassis.png" alt="Chassis Design" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                     </div>
                     <div class="gallery-content">
-                        <h3 class="gallery-label">Chassis CAD Model</h3>
-                        <p class="gallery-description">My space frame chassis design optimized for strength-to-weight ratio. The geometry ensures driver safety while meeting all SAE Baja India rulebook requirements for roll cage protection and impact zones.</p>
+                        <h3 class="gallery-label">Ergonomic & CAD Design (SolidWorks)</h3>
+                        <p class="gallery-description">After finalizing the chassis and ATV assembly, I conducted FEA using ANSYS and MATLAB. Multiple load cases — including frontal and side impact, torsional rigidity, and operational loads — were simulated. I iteratively optimized tube diameters and joint placements, ultimately reducing chassis weight by 15% while maintaining safety margins.</p>
                     </div>
                 </div>
                 
@@ -521,18 +528,29 @@
                         <img src="../images/BajaAnsys.png" alt="FEA Analysis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                     </div>
                     <div class="gallery-content">
-                        <h3 class="gallery-label">FEA Stress Analysis</h3>
-                        <p class="gallery-description">Finite element analysis results showing stress distribution under critical loading conditions. My analysis validated the design's safety margins and identified areas for weight optimization without compromising structural integrity.</p>
+                        <h3 class="gallery-label">Finite Element Analysis (ANSYS & MATLAB)</h3>
+                        <p class="gallery-description">After finalizing the CAD, I conducted FEA using ANSYS and MATLAB. Multiple load cases — including frontal and side impact, torsional rigidity, and operational loads — were simulated. I iteratively optimized tube diameters and joint placements, ultimately reducing chassis weight by 15% while maintaining safety margins.</p>
                     </div>
                 </div>
-                
+
+                <!-- Second 2 placeholder images -->
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="../images/BajaFinal.png" alt="Final ATV" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                        <div class="placeholder-image">Manufacturing & Testing</div>
                     </div>
                     <div class="gallery-content">
-                        <h3 class="gallery-label">Final Assembly</h3>
-                        <p class="gallery-description">The completed ATV featuring my chassis design at the national competition. The vehicle successfully passed all safety inspections and performed competitively in dynamic events, validating my design approach.</p>
+                        <h3 class="gallery-label">Fabrication & Assembly</h3>
+                        <p class="gallery-description">The optimized design was manufactured using precision welding techniques and quality control processes. Close collaboration with the fabrication team ensured all design specifications were met while maintaining structural integrity throughout the assembly process.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <div class="placeholder-image">Final Validation</div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-label">Performance Validation & Competition</h3>
+                        <p class="gallery-description">The completed chassis underwent rigorous testing including static load tests, dynamic performance evaluation, and safety inspections. The successful validation enabled the team to achieve top-20 national rankings.</p>
                     </div>
                 </div>
             </div>
@@ -542,14 +560,15 @@
         <section class="section section-left">
             <h2 class="section-title">Outcomes & Professional Impact</h2>
             <p class="section-description">
-                This project significantly shaped my professional trajectory, demonstrating the value of combining technical expertise with business acumen in complex engineering projects.
+                This project significantly shaped my professional trajectory, demonstrating the value of combining technical expertise with business acumen in complex engineering projects. 
+                This comprehensive experience was instrumental in securing national level placement opportunities, being selected from 2000+ students.
             </p>
             
             <div class="contribution-content">
-                <h3 class="contribution-subtitle">Key Achievements & Learning</h3>
-                <p class="contribution-text">I successfully designed and validated a competition-grade chassis that contributed to our team's top-20 national ranking. Through this project, I developed expertise in FEA methodology and structural optimization that directly applies to automotive and aerospace industries.</p>
+<!--                 <h3 class="contribution-subtitle">Key Achievements & Learning</h3> -->
+<!--                 <p class="contribution-text">I successfully designed and validated a competition-grade chassis that contributed to our team's top-20 national ranking. Through this project, I developed expertise in FEA methodology and structural optimization that directly applies to automotive and aerospace industries.</p> -->
                 
-                <p class="contribution-text">The experience provided valuable technical leadership opportunities, coordinating diverse teams toward common engineering goals. I also built business development skills through successful sponsorship acquisition and corporate relationship management. This comprehensive experience was instrumental in securing campus placement opportunities, being selected from over 1000 students.</p>
+<!--                 <p class="contribution-text">The experience provided valuable technical leadership opportunities, coordinating diverse teams toward common engineering goals. I also built business development skills through successful sponsorship acquisition and corporate relationship management. This comprehensive experience was instrumental in securing campus placement opportunities, being selected from over 1000 students.</p> -->
             </div>
         </section>
     </div>
