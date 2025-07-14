@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Ball 3D Model | Namita Sawant</title>
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Herr+Von+Muellerhoff&family=Lavishly+Yours&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
     <style>
         * {
             margin: 0;
@@ -122,57 +126,110 @@
             text-align: center;
         }
 
-        /* Skills Showcase */
-        .skills-section {
-            margin: 4rem 0;
+        /* Interactive 3D Viewer */
+        .viewer-section {
+            margin: 6rem 0;
+            text-align: center;
         }
 
-        .skills-title {
+        .viewer-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             color: #34495e;
-            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .viewer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #3b82c4;
+            border-radius: 2px;
+        }
+
+        .viewer-subtitle {
+            font-size: 1.1rem;
+            color: #7c8b9f;
             margin-bottom: 2rem;
-            font-weight: 400;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-card {
+        .viewer-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
             padding: 2rem;
-            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .viewer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        #threejs-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            background: radial-gradient(circle, #1a1a2e 0%, #16213e 100%);
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .viewer-controls {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
         }
 
-        .skill-card:hover {
-            transform: translateY(-4px);
+        .control-btn:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
         }
 
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .control-btn.active {
+            background: rgba(255,255,255,0.4);
+            border-color: rgba(255,255,255,0.6);
         }
 
-        .skill-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #34495e;
-            margin-bottom: 1rem;
-            font-weight: 400;
+        .interaction-hint {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
         }
 
-        .skill-card p {
-            color: #5a6c7a;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Image Gallery */
+        /* Gallery Section */
         .gallery-section {
             margin: 6rem 0;
         }
@@ -212,11 +269,10 @@
 
         .gallery-item img {
             width: 100%;
-            height: 300px; /* Fixed height for all images */
+            height: 300px;
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* Removed hover animations */
         }
 
         .gallery-label {
@@ -231,21 +287,6 @@
             font-size: 0.9em;
             color: #5a6c7a;
             line-height: 1.4;
-        }
-
-        /* Responsive design - stack on mobile */
-        @media (max-width: 768px) {
-            .image-gallery {
-                flex-direction: column;
-            }
-            
-            .gallery-item {
-                margin-bottom: 20px;
-            }
-
-            .gallery-item img {
-                height: 250px; /* Slightly smaller on mobile */
-            }
         }
 
         /* Technical Details */
@@ -306,7 +347,7 @@
                 font-size: 2.5rem;
             }
 
-            .gallery-title {
+            .gallery-title, .viewer-title {
                 font-size: 2.2rem;
             }
 
@@ -314,9 +355,50 @@
                 padding: 6rem 1rem 3rem;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .image-gallery {
+                flex-direction: column;
             }
+            
+            .gallery-item {
+                margin-bottom: 20px;
+            }
+
+            .gallery-item img {
+                height: 250px;
+            }
+
+            #threejs-container {
+                height: 400px;
+            }
+
+            .viewer-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .control-btn {
+                width: 200px;
+                text-align: center;
+            }
+        }
+
+        /* Loading animation */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
     </style>
 </head>
@@ -338,12 +420,50 @@
         <!-- Project Header -->
         <div class="project-header">
             <h1 class="project-title">Pokemon Ball 3D Model</h1>
-            <p class="project-subtitle">SolidWorks • 3D Modeling • Rendering</p>
-            <p class="project-subtitle1">Fun with CAD</p>
+            <p class="project-subtitle">SolidWorks • 3D Modeling • Rendering • Interactive Web Experience</p>
+            <p class="project-subtitle1">Fun with CAD meets Interactive Design</p>
             <div class="project-intro">
-                <p>A personal project exploring advanced SolidWorks capabilities through the creation of an iconic Pokemon Ball. This model demonstrates precision geometric modeling, professional rendering techniques, and attention to manufacturing details.</p>
+                <p>A personal project exploring advanced SolidWorks capabilities through the creation of an iconic Pokemon Ball. This model demonstrates precision geometric modeling, professional rendering techniques, and attention to manufacturing details - now with interactive 3D visualization!</p>
             </div>
         </div>
+
+        <!-- Interactive 3D Viewer -->
+        <section class="viewer-section">
+            <h2 class="viewer-title">Interactive 3D Model</h2>
+            <p class="viewer-subtitle">Experience the Pokemon Ball in full 3D - rotate, zoom, and interact!</p>
+            
+            <div class="viewer-container">
+                <!-- GrabCAD 3D Viewer -->
+                <iframe 
+                    src="https://grabcad.com/library/new/embed?hide_info=true&hide_description=true" 
+                    id="threejs-container"
+                    frameborder="0" 
+                    allowfullscreen
+                    style="width: 100%; height: 500px; border-radius: 15px; background: #1a1a2e;">
+                </iframe>
+                
+                <div class="viewer-controls">
+                    <p style="color: rgba(255,255,255,0.9); text-align: center; margin: 1rem 0;">
+                        <strong>Interactive Controls:</strong> Left click + drag to rotate • Right click + drag to pan • Scroll to zoom<br>
+                        <em>Original SolidWorks assembly hosted on GrabCAD</em>
+                    </p>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="https://grabcad.com/library/new" target="_blank" 
+                           style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; 
+                                  border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem 1rem; 
+                                  border-radius: 20px; transition: all 0.3s ease;"
+                           onmouseover="this.style.background='rgba(255,255,255,0.1)'"
+                           onmouseout="this.style.background='transparent'">
+                            🔗 View Full Model Details on GrabCAD
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="interaction-hint">
+                    <strong>Mouse Controls:</strong> Left click + drag to rotate • Right click + drag to pan • Scroll to zoom
+                </div>
+            </div>
+        </section>
 
         <!-- Image Gallery -->
         <section class="gallery-section">
@@ -372,16 +492,16 @@
             <h2 class="tech-title">Project Details</h2>
             <div class="tech-content">
                 <div class="tech-item">
-                    <h4>Modeling Features</h4>
-                    <p>Lofted surfaces, revolve cuts, and precise dimensional constraints for accurate geometry.</p>
+                    <h4>3D Modeling Features</h4>
+                    <p>Lofted surfaces, revolve cuts, and precise dimensional constraints for accurate geometry. Interactive web implementation using Three.js.</p>
                 </div>
                 <div class="tech-item">
                     <h4>Assembly Design</h4>
-                    <p>Two-hemisphere construction with functional hinge mechanism and internal components.</p>
+                    <p>Two-hemisphere construction with functional hinge mechanism, internal components, and animated opening/closing functionality.</p>
                 </div>
                 <div class="tech-item">
-                    <h4>Rendering Quality</h4>
-                    <p>High-resolution output with realistic materials and professional studio lighting.</p>
+                    <h4>Interactive Experience</h4>
+                    <p>Real-time 3D visualization with exploded views, smooth animations, and intuitive mouse controls for enhanced user engagement.</p>
                 </div>
             </div>
         </section>
@@ -406,20 +526,6 @@
                 window.history.back();
             }, 300);
         }
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
 
         // Page load animation
         document.addEventListener('DOMContentLoaded', function() {
