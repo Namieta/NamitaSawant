@@ -634,7 +634,7 @@
 
         function loadGLBModel() {
             // Update this path to point to your GLB file
-            const modelPath = '/pokeball.glb'; // Change this to your actual GLB file path
+            const modelPath = './models/pokeball.glb'; // Change this to your actual GLB file path
             
             const loader = new THREE.GLTFLoader();
             
@@ -685,15 +685,18 @@
                 },
                 function (error) {
                     console.log('Error loading GLB model:', error);
+                    console.log('Tried to load from:', modelPath);
                     
                     // Remove loading spinner and show error message
                     const spinner = document.querySelector('.loading-spinner');
                     if (spinner) {
-                        spinner.innerHTML = '<div style="color: white; text-align: center; padding: 2rem;">⚠️ Model file not found<br><small>Please upload your pokeball.glb file to the models/ folder</small></div>';
+                        spinner.innerHTML = '<div style="color: white; text-align: center; padding: 2rem; font-family: Arial;">⚠️ GLB Model Not Found<br><small>Expected: ' + modelPath + '<br>Using fallback model instead</small></div>';
                     }
                     
-                    // Create fallback model
-                    createFallbackModel();
+                    // Wait 3 seconds then show fallback
+                    setTimeout(() => {
+                        createFallbackModel();
+                    }, 3000);
                 }
             );
         }
