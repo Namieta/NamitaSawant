@@ -326,6 +326,52 @@
             line-height: 1.6;
         }
 
+        /* Image Viewer Styles */
+        .image-viewer-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #1a1a2e 0%, #16213e 100%);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        #main-model-image {
+            transition: transform 0.3s ease;
+        }
+
+        #main-model-image:hover {
+            transform: scale(1.02);
+        }
+
+        .view-indicators {
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #3b82c4;
+            transform: scale(1.3);
+        }
+
+        .indicator:hover {
+            background: rgba(255,255,255,0.8);
+            transform: scale(1.2);
+        }
+
+        .view-label {
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
         /* Scroll indicator */
         .scroll-indicator {
             position: fixed;
@@ -433,9 +479,9 @@
             <p class="viewer-subtitle">Experience the Pokemon Ball in full 3D - rotate, zoom, and interact!</p>
             
             <div class="viewer-container">
-                <!-- GrabCAD 3D Viewer -->
+                <!-- GrabCAD 3D Viewer - Your Pokemon Ball Model -->
                 <iframe 
-                    src="https://grabcad.com/library/new/embed?hide_info=true&hide_description=true" 
+                    src="https://grabcad.com/library/pokeball-143/embed?hide_info=false&hide_description=false" 
                     id="threejs-container"
                     frameborder="0" 
                     allowfullscreen
@@ -444,17 +490,17 @@
                 
                 <div class="viewer-controls">
                     <p style="color: rgba(255,255,255,0.9); text-align: center; margin: 1rem 0;">
-                        <strong>Interactive Controls:</strong> Left click + drag to rotate • Right click + drag to pan • Scroll to zoom<br>
-                        <em>Original SolidWorks assembly hosted on GrabCAD</em>
+                        <strong>Interactive 3D Model:</strong> Left click + drag to rotate • Right click + drag to pan • Scroll to zoom<br>
+                        <em>Original SolidWorks assembly (.sldasm) hosted on GrabCAD</em>
                     </p>
                     <div style="text-align: center; margin-top: 1rem;">
                         <a href="https://grabcad.com/library/pokeball-143" target="_blank" 
                            style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; 
                                   border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem 1rem; 
-                                  border-radius: 20px; transition: all 0.3s ease;"
+                                  border-radius: 20px; transition: all 0.3s ease; display: inline-block;"
                            onmouseover="this.style.background='rgba(255,255,255,0.1)'"
                            onmouseout="this.style.background='transparent'">
-                            🔗 View Full Model Details on GrabCAD
+                            🔗 View Full Model & Download on GrabCAD
                         </a>
                     </div>
                 </div>
