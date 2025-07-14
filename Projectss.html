@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon Ball 3D Model | Namita Sawant</title>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Herr+Von+Muellerhoff&family=Lavishly+Yours&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <title>Projects | Namita Sawant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Allura&family=Herr+Von+Muellerhoff&family=Lavishly+Yours&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,11 +14,18 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            background: #fefefe;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #FCE7F3 0%, #FDF2F8 50%, #FCE7F3 100%);
             min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Navigation */
@@ -26,18 +34,22 @@
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(248, 187, 217, 0.2);
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1500px;
-            margin: 0 auto;
             padding: 0 2rem;
         }
 
@@ -50,364 +62,375 @@
             letter-spacing: 2px;
         }
 
-        .back-link {
-            color: #6b7c8a;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
+        .nav-links {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .back-link:hover {
-            color: #5a6c7a;
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #F8BBD9;
+        }
+
+        .nav-links a.active {
+            color: #E879A7;
+            font-weight: 600;
         }
 
         /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 6rem 2rem 3rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: pageSlideIn 0.8s ease forwards;
+        .main-content {
+            padding: 8rem 0 4rem;
         }
 
-        @keyframes pageSlideIn {
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #5D4E60;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #6B5B6E;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Project Header */
-        .project-header {
-            text-align: center;
-            margin-bottom: 6rem;
-            position: relative;
-        }
-
-        .project-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            color: #3b82c4;
-            font-weight: 500;
-            letter-spacing: -0.5px;
-        }
-
-        .project-subtitle {
-            font-size: 1.2rem;
-            color: #7c8b9f;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .project-subtitle1 {
-            font-size: 1.2rem;
-            color: #7c8b9f;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .project-intro {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            color: #5a6c7a;
-            line-height: 1.8;
-            text-align: center;
-        }
-
-        /* Skills Showcase */
-        .skills-section {
-            margin: 4rem 0;
-        }
-
-        .skills-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: #34495e;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .skill-card {
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
+        .portfolio-row-top {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
-        .skill-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #34495e;
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .skill-card p {
-            color: #5a6c7a;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Image Gallery */
-        .gallery-section {
-            margin: 6rem 0;
-        }
-
-        .gallery-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: #34495e;
-            text-align: center;
-            margin-bottom: 3rem;
-            font-weight: 400;
-            position: relative;
-        }
-
-        .gallery-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #3b82c4;
-            border-radius: 2px;
-        }
-
-        .image-gallery {
+        .portfolio-row-bottom {
             display: flex;
-            gap: 20px;
-            align-items: flex-start;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 100%;
         }
 
-        .gallery-item {
-            flex: 1;
+        .portfolio-row-bottom .portfolio-item {
+            flex: 0 0 300px;
+        }
+
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            padding: 0;
+            border: 1px solid rgba(248, 187, 217, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: projectFadeIn 0.8s ease forwards;
+        }
+
+        .portfolio-row-top .portfolio-item:nth-child(1) { animation-delay: 0.9s; }
+        .portfolio-row-top .portfolio-item:nth-child(2) { animation-delay: 1.1s; }
+        .portfolio-row-top .portfolio-item:nth-child(3) { animation-delay: 1.3s; }
+        .portfolio-row-bottom .portfolio-item:nth-child(1) { animation-delay: 1.5s; }
+        .portfolio-row-bottom .portfolio-item:nth-child(2) { animation-delay: 1.7s; }
+
+        @keyframes projectFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(248, 187, 217, 0.3);
+        }
+
+        .portfolio-image {
+            height: 250px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            background: rgba(248, 187, 217, 0.1);
+        }
+
+        .portfolio-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 1rem;
             text-align: center;
+            background: transparent;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 300px; /* Fixed height for all images */
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* Removed hover animations */
+        .portfolio-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #5D4E60;
         }
 
-        .gallery-label {
-            margin: 15px 0 5px 0;
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #34495e;
-        }
-
-        .gallery-description {
-            margin: 0;
-            font-size: 0.9em;
-            color: #5a6c7a;
+        .portfolio-content p {
+            color: #6B5B6E;
+            font-size: 0.85rem;
             line-height: 1.4;
         }
 
-        /* Responsive design - stack on mobile */
-        @media (max-width: 768px) {
-            .image-gallery {
-                flex-direction: column;
-            }
-            
-            .gallery-item {
-                margin-bottom: 20px;
-            }
-
-            .gallery-item img {
-                height: 250px; /* Slightly smaller on mobile */
-            }
-        }
-
-        /* Technical Details */
-        .tech-details {
-            margin: 4rem 0;
-        }
-
-        .tech-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: #34495e;
+        /* Call to Action */
+        .cta-section {
             text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 400;
+            margin-top: 5rem;
+            padding: 3rem 0;
         }
 
-        .tech-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(248, 187, 217, 0.3);
+            color: #5D4E60;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid rgba(248, 187, 217, 0.5);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s ease 2.4s forwards;
         }
 
-        .tech-item {
-            padding: 1.5rem 0;
+        .cta-button:hover {
+            background: rgba(248, 187, 217, 0.5);
+            transform: translateY(-2px);
+            color: #4A3D4F;
         }
 
-        .tech-item h4 {
-            font-family: 'Playfair Display', serif;
-            color: #34495e;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .tech-item p {
-            color: #5a6c7a;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #3b82c4;
-            transform-origin: left;
-            transform: scaleX(0);
-            z-index: 1001;
-            transition: transform 0.1s ease;
-            opacity: 0.7;
+        /* Footer */
+        footer {
+            background: rgba(241, 166, 193, 0.3);
+            color: #5D4E60;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            backdrop-filter: blur(10px);
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .project-title {
-                font-size: 2.5rem;
+            .nav-links {
+                display: none;
             }
 
-            .gallery-title {
+            .page-title {
                 font-size: 2.2rem;
             }
 
-            .container {
-                padding: 6rem 1rem 3rem;
+            .portfolio-row-top {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .portfolio-row-bottom {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .portfolio-row-bottom .portfolio-item {
+                flex: none;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .main-content {
+                padding: 6rem 0 4rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .portfolio-row-top {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .portfolio-row-bottom .portfolio-item {
+                flex: 0 0 280px;
+            }
+        }
+
+        /* Page load animation */
+        body {
+            opacity: 0;
+            animation: pageLoad 0.8s ease 0.1s forwards;
+        }
+
+        @keyframes pageLoad {
+            to {
+                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-indicator" id="scrollIndicator"></div>
-
     <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Namita Sawant</div>
-            <a href="#" class="back-link" onclick="goBackToPortfolio(event)">
-                ← Back to Portfolio
-            </a>
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">Namita Sawant</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <div class="container">
-        <!-- Project Header -->
-        <div class="project-header">
-            <h1 class="project-title">Pokemon Ball 3D Model</h1>
-            <p class="project-subtitle">SolidWorks • 3D Modeling • Rendering</p>
-            <p class="project-subtitle1">Fun with CAD</p>
-            <div class="project-intro">
-                <p>A personal project exploring advanced SolidWorks capabilities through the creation of an iconic Pokemon Ball. This model demonstrates precision geometric modeling, professional rendering techniques, and attention to manufacturing details.</p>
+        <div class="main-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Featured Projects</h1>
+<!--                 <p class="page-subtitle">Explore my engineering projects showcasing mechanical design, computational modeling, and creative problem-solving across various domains.</p> -->
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Top Row - 3 Projects -->
+                <div class="portfolio-row-top">
+                    <a href="projects/sae-baja.html" class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/BajaFinal1.png" alt="SAE Baja India Competition">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>SAE Baja India Competition</h3>
+                            <p>Led chassis design and FEA analysis for national ATV competition, achieving top rankings.</p>
+                        </div>
+                    </a>
+
+                    <a href="projects/pokemon-ball.html" class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/PokeIso1.png" alt="Pokemon Ball 3D Model">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Pokemon Ball 3D Model</h3>
+                            <p>Advanced SolidWorks modeling with complex surface design and photorealistic rendering.</p>
+                        </div>
+                    </a>
+
+                    <a href="projects/hcd-project.html" class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/Mockup1.png" alt="Human-Centered Design Project">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Human-Centered Design Project</h3>
+                            <p>Complete design thinking process from ideation to prototype with user research and testing.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Bottom Row - 2 Projects Centered -->
+                <div class="portfolio-row-bottom">
+                    <a href="projects/smart-trash-sorter.html" class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/TrashIso1.png" alt="Smart Home Trash Sorter">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Smart Home Trash Sorter</h3>
+                            <p>Automated waste sorting system with computer vision and IoT connectivity.</p>
+                        </div>
+                    </a>
+
+                    <a href="projects/art-gallery.html" class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/Art1.png" alt="Art Gallery">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Art Gallery</h3>
+                            <p>Now that you're here, let me show you the world from my perspective. Creative collection through various mediums and techniques.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <a href="index.html#contact" class="cta-button">Let's Work Together</a>
             </div>
         </div>
-
-        <!-- Image Gallery -->
-        <section class="gallery-section">
-            <h2 class="gallery-title">Design Views & Renderings</h2>
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="../images/PokeFront.png" alt="Pokemon Ball Front View">
-                    <h3 class="gallery-label">Front View</h3>
-                    <p class="gallery-description">Classic design with iconic red and white color scheme.</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/PokeOpen.png" alt="Pokemon Ball Open View">
-                    <h3 class="gallery-label">Isometric View</h3>
-                    <p class="gallery-description">Three-dimensional perspective showcasing spherical geometry.</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/PokeIso.png" alt="Pokemon Ball Isometric View">
-                    <h3 class="gallery-label">Side Profile</h3>
-                    <p class="gallery-description">Cross-sectional view revealing internal mechanism design.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Details -->
-        <section class="tech-details">
-            <h2 class="tech-title">Project Details</h2>
-            <div class="tech-content">
-                <div class="tech-item">
-                    <h4>Modeling Features</h4>
-                    <p>Lofted surfaces, revolve cuts, and precise dimensional constraints for accurate geometry.</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Assembly Design</h4>
-                    <p>Two-hemisphere construction with functional hinge mechanism and internal components.</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Rendering Quality</h4>
-                    <p>High-resolution output with realistic materials and professional studio lighting.</p>
-                </div>
-            </div>
-        </section>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Namita Sawant. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // Scroll progress indicator
+        // Navbar scroll effect
         window.addEventListener('scroll', function() {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercent = scrollTop / scrollHeight;
-            document.getElementById('scrollIndicator').style.transform = `scaleX(${scrollPercent})`;
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // Navigation functions
-        function goBackToPortfolio(event) {
-            event.preventDefault();
-            document.querySelector('.container').style.opacity = '0';
-            document.querySelector('.container').style.transform = 'translateY(-20px)';
-            
-            setTimeout(() => {
-                window.history.back();
-            }, 300);
-        }
-
-        // Smooth scrolling for navigation
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -419,15 +442,6 @@
                     });
                 }
             });
-        });
-
-        // Page load animation
-        document.addEventListener('DOMContentLoaded', function() {
-            document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 0.8s ease';
-                document.body.style.opacity = '1';
-            }, 100);
         });
     </script>
 </body>
