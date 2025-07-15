@@ -34,16 +34,22 @@ f
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: transparent;          /* Changed from rgba(255, 255, 255, 0.95) */
+            backdrop-filter: none;            /* Changed from blur(10px) */
             z-index: 1000;
             padding: 1rem 0;
             transition: all 0.3s ease;
         }
 
-        nav.scrolled {
+/*         nav.scrolled {
             background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        } */
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.1);    /* Very subtle background */
+            backdrop-filter: blur(10px);             /* Light blur effect */
+/*             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);  /* Subtle shadow */ */
         }
 
         .nav-container {
