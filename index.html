@@ -233,7 +233,36 @@
             color: #FFFFFF;
         }
 
-/*         .cta-button {
+        /* Corner text on hero image */
+        .hero-corner-text {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-family: Cambria, 'Times New Roman', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            z-index: 4;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            animation: fadeInUp 1s ease 2s forwards;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .hero-corner-text {
+                bottom: 20px;
+                right: 20px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+        }
+
+        .cta-button {
             display: inline-block;
             padding: 12px 30px;
             background: rgba(248, 187, 217, 0.3);
@@ -243,9 +272,9 @@
             border: 2px solid rgba(248, 187, 217, 0.5);
             transition: all 0.3s ease;
             opacity: 0;
-            animation: fadeInUp 1s ease 1.0s forwards;
+/*             animation: fadeInUp 1s ease 1.0s forwards; */
             font-weight: 600;
-        } */
+        }
 
         .cta-button:hover {
             background: rgba(248, 187, 217, 0.5);
@@ -307,14 +336,14 @@
         }
 
         /* Video Section */
-        .hero-video {
+/*         .hero-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 1;
+            z-index: 1; */
 /*             animation: videoSequence 4s ease-in-out infinite; */
 /*             animation: videoSequence 4s ease-in-out infinite; */
             /*opacity: 0;*/
@@ -330,7 +359,7 @@
             opacity: 0;
         }*/
 
-       @keyframes videoSequence {
+/*        @keyframes videoSequence {
             0% { opacity: 0; }
             20% { opacity: 1; }
             80% { opacity: 1; }
@@ -344,6 +373,28 @@
             width: 100%;
             height: 100%;
             background: rgba(248, 187, 217, 0.3); /* Pink tint to match your theme */
+            z-index: 2;
+        } */
+
+        /* Background Image */
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        /* Image overlay for better text readability */
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 187, 217, 0.4);
             z-index: 2;
         }
         
@@ -748,17 +799,25 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
+<!--         <video class="hero-video" autoplay muted loop playsinline>
         <source src="Me (1).mov" type="video/mp4">
         <source src="videos/Me.webm" type="video/webm">
-    </video>
+    </video> -->
+        
+    <img class="hero-image" src="images/Product2.png" alt="Hero Background">
     
     <!-- Video overlay for better text readability -->
-    <div class="video-overlay"></div>
+<!--     <div class="video-overlay"></div> -->
+        <div class="image-overlay"></div>
+
+    <div class="hero-corner-text">
+        Mechanical Engineer. 
+        Product Designer.
+    </div>
         
-        <div class="hero-content">
+<!--         <div class="hero-content">
             <h1>Designing with purpose. Engineering with heart.</h1>
-            <p>Mechanical Engineer. Product Designer</p>
+            <p>Mechanical Engineer. Product Designer</p> -->
 <!--             <p>Product Designer.</p> -->
 <!--             <div class="skills" style="margin-top: 2rem; margin-bottom: 3rem; justify-content: center;">
                 <span class="skill-tag-small">SolidWorks</span>
@@ -782,8 +841,8 @@
                 <span class="skill-tag-small">Machine-Learning</span> -->
 <!--             </div> -->
 <!--             <a href="Projectss.html" class="cta-button">View My Work</a> -->
-        </div>
-    </section>
+<!--         </div>
+    </section> -->
 
     <!-- About Section -->
 <!--     <section id="about" class="about">
